@@ -2,7 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useGetProductById } from "../../hooks/useGetProductById";
 import Rating from "../../components/shared/Rating";
 
-export default function DetailsProduct(){
+export default function ProductsDetails(){
     const {id} = useParams();
     const navigate = useNavigate();
     const {data: datos ,isLoading, isError, error} = useGetProductById(id);

@@ -7,7 +7,7 @@ export default function Products() {
   const [page, setPage] = useState(1);
   const limit = 15;
 
-  const { data, isLoading, isError, error, isFetching } = useGetProducts({page, limit})
+  const { data, isLoading, isError, error } = useGetProducts({page, limit})
 
   const products = data?.products ?? [];
   const total = data?.total ?? 0;
@@ -19,9 +19,7 @@ export default function Products() {
 
   return (
     <div className="max-w-[1300px] mx-auto px-6 w-full">
-      <h1 className='text-5xl font-extrabold py-4'>Productos</h1>
-
-      {isFetching && <p>Cargando página...</p>}
+      <h1 className='text-5xl font-extrabold py-4 text-primary'>Productos</h1>
 
       <ListProducts products={products} />
 

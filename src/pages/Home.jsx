@@ -2,6 +2,7 @@ import Banner from "../components/shared/Banner";
 import CategorySection from "../components/products/CategorySection";
 import { useGetCategories } from "../hooks/useGetCategories";
 import Spinner from "../components/shared/Spinner";
+import Footer from "../components/shared/Footer";
 
 export default function Home() {
   const { data: categories = [], isLoading } = useGetCategories();
@@ -13,7 +14,8 @@ export default function Home() {
   const laptops = categories.find((c) => c.slug === "laptops");
 
   return (
-    <div className="max-w-[1300px] mx-auto px-6 w-full">
+    <div>
+      <div className="max-w-[1300px] mx-auto px-6 w-full">
       <Banner
         image="../src/assets/muebleria-2.jpg"
         titulo="Mueblería"
@@ -62,5 +64,7 @@ export default function Home() {
         little
       />
     </div>
+    <Footer />
+  </div>
   );
 }
