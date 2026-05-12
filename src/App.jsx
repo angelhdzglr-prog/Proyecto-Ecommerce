@@ -76,7 +76,7 @@ function App() {
 
           
           <div className="relative group">
-            <span className="px-4 py-1 rounded-lg cursor-pointer hover:bg-[#0060641a] hover:text-[#006064]">
+            <span className="px-4 py-1 rounded-lg text-gray-900 cursor-pointer hover:bg-[#0060641a] hover:text-[#006064]">
               Categorías
             </span>
 
