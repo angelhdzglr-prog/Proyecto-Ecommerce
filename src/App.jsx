@@ -7,10 +7,13 @@ import Home from './pages/Home';
 import Products from './pages/product/Products';
 import ProductsDetails from './pages/product/ProductsDetails';
 import { CategoryPage } from './pages/product/CategoryPage';
+import useCart from './hooks/useCart';
+import CartPage from './pages/cart/CartPage';
 
 
 function App() {
   const [search, setSearch] = useState('');
+  const { totalItems } = useCart();
   const [menuOpen, setMenuOpen] = useState(false);
   const [categoriesOpen, setCategoriesOpen] = useState(false);
   const [debouncedSearch, setDebouncedSearch] = useState('');
@@ -94,9 +97,22 @@ function App() {
           </div>
         </div>
         
-        <button className="ml-4 px-4 py-2 bg-[#ec5840] text-white rounded-lg shadow hover:bg-[#d8432e] flex items-center gap-2">
-          <FaShoppingCart /> Carrito
-        </button>
+        <button
+  className="ml-4 flex items-center gap-3 rounded-[10px] bg-[#ec5840] px-4 py-2 text-white font-semibold shadow transition hover:bg-[#d8432e] max-[480px]:p-2 max-[480px]:m-0"
+  onClick={() => navigate('/shoppingcart')}
+>
+  <div className="relative flex items-center justify-center">
+    <FaShoppingCart className="h-6 w-6" />
+
+    {totalItems > 0 && (
+      <span className="absolute -top-2 -right-2 flex h-5 min-w-5 items-center justify-center rounded-full bg-[#c70c0c] px-1 text-[0.75rem] font-bold text-white">
+        {totalItems > 99 ? '99+' : totalItems}
+      </span>
+    )}
+  </div>
+
+  <span className="max-[480px]:hidden">Carrito</span>
+</button>
       </nav>
       
       {menuOpen && (
@@ -166,6 +182,7 @@ function App() {
         <Route path="/products/:id" element={<ProductsDetails />} />
         <Route path="/search" element={<SearchProducts />} />
         <Route path="/category/:slug" element={<CategoryPage />} />
+        <Route path="/shoppingcart" element={<CartPage />} />
       </Routes>
     </>
   );

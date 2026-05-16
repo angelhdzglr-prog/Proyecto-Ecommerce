@@ -1,8 +1,10 @@
 import toast from 'react-hot-toast';
 import { FaShoppingCart } from 'react-icons/fa';
 import Rating from '../shared/Rating';
+import useCart from '../../hooks/useCart';
 
 export default function ProductInfo({ datos }) {
+  const { addCart } = useCart();
   return (
     <div className="flex flex-col justify-around items-start p-8">
       
@@ -18,7 +20,10 @@ export default function ProductInfo({ datos }) {
 
       <button
         className="w-full px-4 py-3 my-4 rounded-xl bg-[#ec5840] hover:bg-[#d8432e] text-white font-semibold shadow transition flex justify-center items-center gap-2"
-        onClick={() => toast.success('Se agrego al carrito')}
+        onClick={() => {
+          addCart(datos);
+          toast.success('Se agrego al carrito')
+        }}
       >
         <FaShoppingCart className="text-xl" />
         Agregar al carrito
