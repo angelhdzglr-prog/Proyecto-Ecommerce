@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { BrowserRouter } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
 import { CartContext } from './context/CartContext.jsx'
+import 'react-loading-skeleton/dist/skeleton.css';
 
 const queryClient = new QueryClient();
 

@@ -4,6 +4,7 @@ import ListProducts from '../../components/products/ListProducts';
 import { useGetProductByCategory } from '../../hooks/useGetProductByCategory';
 import Footer from '../../components/shared/Footer';
 import Breadcrumb from '../../components/shared/BreadCrumb';
+import SkeletonCard from '../../components/skeletons/SkeletonCard';
 
 export function CategoryPage() {
   const { slug } = useParams();
@@ -15,7 +16,6 @@ export function CategoryPage() {
     error,
   } = useGetProductByCategory(slug, 0);
 
-  if (isLoading) return <Spinner />;
   if (isError) return <p className="error">Error: {error.message}</p>;
 
   console.log(products);
@@ -31,7 +31,13 @@ export function CategoryPage() {
       />
       <div className="max-w-[1300px] mx-auto px-6 w-full">
         <h1 className='text-5xl font-extrabold py-4 text-primary capitalize'>{slug}</h1>
-        {products.length === 0 ? (
+        {isLoading ? (
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-6">
+            {Array.from({ length: 10 }).map((_, i) => (
+              <SkeletonCard key={i} />
+            ))}
+          </div>
+        ) : products.length === 0 ? (
           <p>No se encontraron productos</p>
         ) : (
           <ListProducts products={products} />
