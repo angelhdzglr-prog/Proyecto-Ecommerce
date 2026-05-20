@@ -3,6 +3,8 @@ import { useGetProducts } from '../../hooks/useGetProducts';
 import Spinner from '../../components/shared/Spinner';
 import ListProducts from '../../components/products/ListProducts';
 import SkeletonCard from '../../components/skeletons/SkeletonCard';
+import FilterSidebar from '../../components/products/FilterSidebar';
+import ProductsToolbar from '../../components/products/ProductsToolbar';
 
 export default function Products() {
   const [page, setPage] = useState(1);
@@ -19,8 +21,12 @@ export default function Products() {
   return (
     <div className="max-w-[1300px] mx-auto px-6 w-full">
       <h1 className='text-5xl font-extrabold py-4 text-primary'>Productos</h1>
-
-      {isLoading ? (
+      <ProductsToolbar />
+        <div className='grid grid-cols-1 md:grid-cols-[280px_1fr] gap-8 items-start'>
+          <div>
+            <FilterSidebar /> 
+          </div>
+          {isLoading ? (
             <div className="grid grid-cols-[repeat(auto-fit,_minmax(220px,_1fr))] gap-6">
               {Array.from({ length: 10 }).map((_, i) => (
                 <SkeletonCard key={i} />
@@ -29,6 +35,7 @@ export default function Products() {
           ) : (
             <ListProducts products={products} />
           )}
+        </div>
 
       <div className='text-center my-8'>
         <button
