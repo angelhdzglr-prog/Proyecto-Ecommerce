@@ -1,13 +1,6 @@
-import { useState } from "react"
 import { useGetCategories } from "../../hooks/useGetCategories";
 
-export default function FilterSidebar(){
-    const [filters, setFilters] = useState({
-        minPrice: '',
-        maxPrice: '',
-        category: '',
-        rating: '',
-    })
+export default function FilterSidebar({ filters, setFilters, clearFilters }){
 
     const {data:categories = [], isLoading} = useGetCategories();
     if(isLoading) return <p>Cargando...</p>
@@ -18,7 +11,7 @@ export default function FilterSidebar(){
                 <h4 className="text-xl font-extrabold text-primary border-b my-4">Precio</h4>
                 <div className="flex gap-2">
                     <input type="number" className="bg-neutral-200 flex-1 min-w-0 border-2 border-b-black" value={filters.minPrice} onChange={(e) => setFilters({...filters, minPrice:e.target.value})}/>
-                    <input type="number" className="bg-neutral-200 flex-1 min-w-0 border-2 border-b-black" value={filters.maxPricePrice} onChange={(e) => setFilters({...filters, maxPrice:e.target.value})}/>
+                    <input type="number" className="bg-neutral-200 flex-1 min-w-0 border-2 border-b-black" value={filters.maxPrice} onChange={(e) => setFilters({...filters, maxPrice:e.target.value})}/>
                     <button className="w-[30px] h-[30px] border-0 text-white cursor-pointer rounded-sm bg-accent">&gt;</button>
                 </div>
             </section>
@@ -61,6 +54,9 @@ export default function FilterSidebar(){
                         ))}
                 </select>
             </section>
+            <button className="bg-accent text-sm text-fondo font-semibold w-full rounded-md p-2 my-2 hover:bg-accentHover" onClick={() => clearFilters()}>
+        Borrar Filtros
+      </button>
         </div>
     )
 }
