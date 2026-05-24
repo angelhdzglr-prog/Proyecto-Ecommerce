@@ -71,7 +71,7 @@ export default function Home() {
         {isLoading ? (
           <SkeletonBanner />
         ) : (
-          <div className="relative w-full h-[75vh] overflow-hidden flex items-center justify-center rounded-xl">
+          <div className="relative w-full h-[75vh] overflow-hidden flex items-center justify-center">
           <img
             src={slides[currentIndex].image}
             alt={slides[currentIndex].title}
@@ -88,7 +88,7 @@ export default function Home() {
             </button>
 
             <div className="text-center text-white px-4">
-              <h2 className="text-3xl md:text-5xl font-bold mb-2">
+              <h2 className="text-3xl md:text-5xl font-bold mb-2 text-primary">
                 {slides[currentIndex].title}
               </h2>
 

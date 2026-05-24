@@ -4,9 +4,9 @@ export default function ProductGallery({ images }) {
   const [selected, setSelected] = useState(images[0]);
 
   return (
-    <div className="w-full h-full text-center">
+    <div className="w-full h-full text-center py-12">
       
-      <div className="w-full h-[80%] bg-gray-50 rounded-xl flex items-center justify-center overflow-hidden">
+      <div className="w-full h-[80%] bg-gray-50 flex items-center justify-center overflow-hidden">
         <img
           src={selected}
           alt="producto"

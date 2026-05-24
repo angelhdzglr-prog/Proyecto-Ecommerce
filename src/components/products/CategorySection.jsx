@@ -4,7 +4,7 @@ import CardProducts from "./CardProducts";
 
 export default function CategorySection({ category }) {
   const { data: products = [], isLoading } =
-    useGetProductByCategory(category.slug, 5);
+    useGetProductByCategory(category.slug, 4);
 
   return (
     <section>
