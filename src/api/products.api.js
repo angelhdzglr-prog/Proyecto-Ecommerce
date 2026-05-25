@@ -2,12 +2,18 @@ import axios from "axios";
 
 const API_KEY = 'https://dummyjson.com/products';
 
-export const getProducts = async({limit = 12 , skip = 0} = {}) => {
-    const res = await axios.get(API_KEY,{
-        params: {limit, skip}
-    });
-    return res.data;
-}
+export const getProducts = async ({
+  limit = 12,
+  skip = 0,
+  sortBy = '',
+  order = '',
+} = {}) => {
+  const res = await axios.get(API_KEY, {
+    params: { limit, skip, sortBy, order },
+  });
+
+  return res.data;
+};
 
 export const getProductById = async(id) => {
     const res =  await axios.get(`${API_KEY}/${id}`)
