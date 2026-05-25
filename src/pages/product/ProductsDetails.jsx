@@ -17,7 +17,7 @@ export default function ProductsDetails(){
 
     return(
         <div>
-            <Breadcrumb
+            <BreadCrumb
         items={[
           { label: 'Home', path: '/' },
           { label: 'Productos', path: '/products' },
