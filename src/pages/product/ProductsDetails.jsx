@@ -5,7 +5,7 @@ import ProductReviews from "../../components/products/ProductReviews";
 import Footer from '../../components/shared/Footer';
 import Spinner from "../../components/shared/Spinner";
 import ProductSpecs from "../../components/products/ProductSpecs";
-import Breadcrumb from "../../components/shared/BreadCrumb";
+import BreadCrumb from "../../components/shared/BreadCrumb";
 
 export default function ProductsDetails(){
     const {id} = useParams();
@@ -17,7 +17,7 @@ export default function ProductsDetails(){
 
     return(
         <div>
-            <Breadcrumb
+            <BreadCrumb
         items={[
           { label: 'Home', path: '/' },
           { label: 'Productos', path: '/products' },
