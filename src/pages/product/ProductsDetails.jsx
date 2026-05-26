@@ -6,12 +6,15 @@ import Footer from '../../components/shared/Footer';
 import Spinner from "../../components/shared/Spinner";
 import ProductSpecs from "../../components/products/ProductSpecs";
 import BreadCrumb from "../../components/shared/BreadCrumb";
+import SkeletonDetails from "../../components/skeletons/SkeletonDetails";
 
 export default function ProductsDetails(){
     const {id} = useParams();
     const {data: datos ,isLoading, isError, error} = useGetProductById(id);
 
-    if(isLoading) return <Spinner />
+    if (isLoading) {
+        return <SkeletonDetails />;
+    }
 
     if(isError) return <p>Error: {error.message}</p>
 

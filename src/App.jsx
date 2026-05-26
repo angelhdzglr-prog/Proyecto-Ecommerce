@@ -38,7 +38,7 @@ function App() {
   return (
     <>
       
-      <nav className="flex items-center justify-between px-8 py-4 border-b border-gray-200 bg-white">
+      <nav className="flex items-center justify-between px-8 py-4 border-b border-gray-200 bg-white gap-8">
         
         <button
           className="text-[#ec5840] text-2xl md:hidden"
