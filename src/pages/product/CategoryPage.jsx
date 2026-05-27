@@ -2,7 +2,6 @@ import { useParams } from 'react-router-dom';
 import Spinner from '../../components/shared/Spinner';
 import ListProducts from '../../components/products/ListProducts';
 import { useGetProductByCategory } from '../../hooks/useGetProductByCategory';
-import Footer from '../../components/shared/Footer';
 import SkeletonCard from '../../components/skeletons/SkeletonCard';
 import BreadCrumb from '../../components/shared/BreadCrumb';
 
@@ -43,7 +42,6 @@ export function CategoryPage() {
           <ListProducts products={products} />
         )}
       </div>
-      <Footer />
     </div>
   );
 }
