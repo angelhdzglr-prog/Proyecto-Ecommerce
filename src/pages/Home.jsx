@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import Banner from '../components/shared/Banner';
 import CategorySection from '../components/products/CategorySection';
 import { useGetCategories } from '../hooks/useGetCategories';
-import Footer from '../components/shared/Footer';
 import Spinner from '../components/shared/Spinner';
 
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
@@ -175,8 +174,6 @@ export default function Home() {
           little
         />
       </div>
-
-      <Footer />
     </div>
   );
 }
