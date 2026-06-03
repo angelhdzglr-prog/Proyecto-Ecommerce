@@ -1,23 +1,51 @@
 import { useParams } from 'react-router-dom';
 import Spinner from '../../components/shared/Spinner';
 import ListProducts from '../../components/products/ListProducts';
-import { useGetProductByCategory } from '../../hooks/useGetProductByCategory';
 import SkeletonCard from '../../components/skeletons/SkeletonCard';
 import BreadCrumb from '../../components/shared/BreadCrumb';
+import { useState } from 'react';
+import { useGetProductByCategory } from '../../hooks/useGetProductByCategory';
 
 export function CategoryPage() {
-  const { slug } = useParams();
+    const { slug } = useParams();
+  const [page, setPage] = useState(1);
 
-  const {
-    data: products = [],
-    isLoading,
-    isError,
-    error,
-  } = useGetProductByCategory(slug, 0);
+  const [sortBy, setSortBy] = useState('');
+
+  const sortOptions = {
+    'price-asc': {
+      sortBy: 'price',
+      order: 'asc',
+    },
+
+    'price-desc': {
+      sortBy: 'price',
+      order: 'desc',
+    },
+
+    'rating-desc': {
+      sortBy: 'rating',
+      order: 'desc',
+    },
+  };
+
+  const currentSort = sortOptions[sortBy];
+
+  const limit = 30;
+
+  const { data, isLoading, isError, error } = useGetProductByCategory({
+    slug: slug,
+    page: page,
+    limit: limit,
+    sortBy: currentSort?.sortBy,
+    order: currentSort?.order,
+  });
+
+  const products = data?.products ?? [];
+  const total = data?.total ?? 0;
+  const totalPages = Math.ceil(total / limit);
 
   if (isError) return <p className="error">Error: {error.message}</p>;
-
-  console.log(products);
 
   return (
     <div>
