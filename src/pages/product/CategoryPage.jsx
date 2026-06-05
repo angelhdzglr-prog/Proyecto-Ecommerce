@@ -5,9 +5,10 @@ import SkeletonCard from '../../components/skeletons/SkeletonCard';
 import BreadCrumb from '../../components/shared/BreadCrumb';
 import { useState } from 'react';
 import { useGetProductByCategory } from '../../hooks/useGetProductByCategory';
+import ProductsContent from '../../components/products/ProductsContent';
 
 export function CategoryPage() {
-    const { slug } = useParams();
+  const { slug } = useParams();
   const [page, setPage] = useState(1);
 
   const [sortBy, setSortBy] = useState('');
@@ -56,20 +57,18 @@ export function CategoryPage() {
           { label: slug },
         ]}
       />
-      <div className="max-w-[1300px] mx-auto px-6 w-full">
-        <h1 className='text-5xl font-extrabold py-4 text-primary capitalize'>{slug}</h1>
-        {isLoading ? (
-          <div className="grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-6">
-            {Array.from({ length: 10 }).map((_, i) => (
-              <SkeletonCard key={i} />
-            ))}
-          </div>
-        ) : products.length === 0 ? (
-          <p>No se encontraron productos</p>
-        ) : (
-          <ListProducts products={products} />
-        )}
-      </div>
+      <ProductsContent 
+      title={slug}
+        products={products}
+        isLoading={isLoading}
+        sortBy={sortBy}
+        setSortBy={setSortBy}
+        page={page}
+        setPage={setPage}
+        totalPages={totalPages}
+        showPagination={isLoading}
+        showToolbar
+      />
     </div>
   );
 }
