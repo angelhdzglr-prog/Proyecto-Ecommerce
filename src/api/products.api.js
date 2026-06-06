@@ -25,10 +25,29 @@ export const getCategories = async() => {
     return res.data;
 }
 
-export const getProductsByCategories =  async(cat, limit) => {
-    const res = await axios.get(`${API_KEY}/category/${cat}?limit=${limit}`)
-    return res.data.products;
-}
+// export const getProductsByCategories =  async(cat, limit) => {
+//     const res = await axios.get(`${API_KEY}/category/${cat}?limit=${limit}`)
+//     return res.data.products;
+// }
+
+export const getProductsByCategories = async ({
+  slug,
+  limit = 12,
+  skip = 0,
+  sortBy = '',
+  order = '',
+}) => {
+  const res = await axios.get(`${API_KEY}/category/${slug}`, {
+    params: {
+      limit,
+      skip,
+      sortBy,
+      order,
+    },
+  });
+
+  return res.data;
+};
 
 export const getProductSearch = async(search) => {
     const res = await axios.get(`${API_KEY}/search?q=${search}`);

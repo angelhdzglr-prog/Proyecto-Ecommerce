@@ -1,10 +1,14 @@
-import { useGetProductByCategory } from "../../hooks/useGetProductByCategory";
+import { useGetProductByCategory } from '../../hooks/useGetProductByCategory'
 import SkeletonCard from "../skeletons/SkeletonCard";
 import CardProducts from "./CardProducts";
 
 export default function CategorySection({ category }) {
-  const { data: products = [], isLoading } =
-    useGetProductByCategory(category.slug, 4);
+  const { data, isLoading } = useGetProductByCategory({
+  slug: category.slug,
+  limit: 4,
+});
+
+  const products = data?.products ?? [];
 
   return (
     <section>
@@ -16,7 +20,7 @@ export default function CategorySection({ category }) {
 
       <div className="grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-6">
         {isLoading
-          ? Array.from({ length: 5 }).map((_, i) => <SkeletonCard key={i} />)
+          ? Array.from({ length: 4 }).map((_, i) => <SkeletonCard key={i} />)
           : products.map((prod) => <CardProducts key={prod.id} prod={prod} />)}
       </div>
     </section>

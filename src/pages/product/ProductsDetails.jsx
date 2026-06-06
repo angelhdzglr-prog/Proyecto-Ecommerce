@@ -6,7 +6,8 @@ import Spinner from "../../components/shared/Spinner";
 import ProductSpecs from "../../components/products/ProductSpecs";
 import BreadCrumb from "../../components/shared/BreadCrumb";
 import SkeletonDetails from "../../components/skeletons/SkeletonDetails";
-import SkeletonBreadcrumb from "../../components/skeletons/SkeletonBreadCrumb";
+import SkeletonBreadcrumb from "../../components/skeletons/SkeletonBreadcrumb";
+
 
 export default function ProductsDetails(){
     const {id} = useParams();
