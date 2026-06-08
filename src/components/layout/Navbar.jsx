@@ -32,7 +32,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="flex items-center justify-between px-8 py-4 border-b border-gray-200 bg-white gap-8">
+      <nav className="flex items-center justify-between px-3 md:px-6 py-4 border-b border-gray-200 bg-bgWhite gap-4 md:gap-6">
         
         <button
           className="text-[#ec5840] text-2xl md:hidden"
@@ -43,16 +43,16 @@ export default function Navbar() {
         
         <div
           onClick={() => navigate('/')}
-          className="w-[150px] h-[50px] bg-[url('/src/assets/Logo-1.png')] bg-cover bg-center cursor-pointer shrink-0 md:bg-[url('/src/assets/Logo-1.png')] max-[965px]:bg-[url('/src/assets/LogoSmall.png')] max-[965px]:w-[50px]"
+          className="w-[120px] h-[40px] md:w-[150px] md:h-[50px] bg-[url('/src/assets/Logo-1.png')] bg-cover bg-center cursor-pointer shrink-0 max-[765px]:bg-[url('/src/assets/LogoSmall.png')] max-[965px]:w-[45px] max-[965px]:h-[45px]"
         />
         
-        <form onSubmit={handleSubmit} className="flex-1 flex justify-center">
+        <form onSubmit={handleSubmit} className="flex-1 flex justify-center min-w-0">
           <input
             type="text"
             placeholder="Buscar productos..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-[30vw] max-[965px]:w-[40vw] px-3 py-2 border border-gray-300 rounded"
+            className="w-full max-w-[500px] min-w-0 px-3 py-2 border bg-bgWhite border-gray-300 rounded text-sm md:text-base"
           />
         </form>
         
@@ -77,7 +77,7 @@ export default function Navbar() {
               Categorías
             </span>
 
-            <div className="absolute left-0 top-full bg-white border border-gray-200 rounded-lg py-2 hidden group-hover:block min-w-[200px] z-20">
+            <div className="absolute left-0 top-full bg-bgWhite border border-gray-200 rounded-lg py-2 hidden group-hover:block min-w-[200px] z-20">
               {categories.map((cat) => (
                 <Link
                   key={cat.slug}
@@ -92,7 +92,7 @@ export default function Navbar() {
         </div>
         
         <button
-  className="ml-4 flex items-center gap-3 rounded-[10px] bg-[#ec5840] px-4 py-2 text-white font-semibold shadow transition hover:bg-[#d8432e] max-[480px]:p-2 max-[480px]:m-0"
+  className="flex items-center gap-2 rounded-[10px] bg-[#ec5840] px-2 py-2 md:px-4 text-white font-semibold shadow transition hover:bg-[#d8432e] shrink-0"
   onClick={() => navigate('/shoppingcart')}
 >
   <div className="relative flex items-center justify-center">
@@ -117,7 +117,7 @@ export default function Navbar() {
       )}
       
       <div
-        className={`fixed top-0 left-0 w-[250px] h-full bg-white py-8 flex flex-col gap-4 z-10 transform transition-transform duration-300 ${
+        className={`fixed top-0 left-0 w-[250px] h-full bg-bgWhite py-8 flex flex-col gap-4 z-20 transform transition-transform duration-300 ${
           menuOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >

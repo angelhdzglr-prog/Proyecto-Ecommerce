@@ -14,7 +14,7 @@ export default function CartPage() {
   } = useCart();
 
   return (
-    <div className="bg-white">
+    <div className="bg-bgWhite">
       <div className="max-w-[93vw] w-full mx-auto px-6">
       <h1 className="text-4xl font-bold text-[#006064] my-6">Carrito</h1>
 

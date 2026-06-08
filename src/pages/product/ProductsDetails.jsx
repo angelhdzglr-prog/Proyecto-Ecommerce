@@ -34,7 +34,7 @@ export default function ProductsDetails(){
           { label: datos.title },
         ]}
       />
-            <div className="max-w-[1300px] mx-auto px-6 w-full bg-white">
+            <div className="max-w-[1300px] mx-auto px-6 w-full bg-bgWhite">
                 <ProductMain datos={datos} />
                 <ProductSpecs datos={datos} />
                 <ProductReviews datos={datos} />

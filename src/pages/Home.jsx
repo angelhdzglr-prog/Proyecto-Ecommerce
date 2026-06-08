@@ -66,11 +66,11 @@ export default function Home() {
 
   return (
     <div>
-      <div className="max-w-[1400px] mx-auto px-4 md:px-6 w-full">
+      <div className="w-full md:max-w-[1400px] md:mx-auto md:px-6 px-4">
         {isLoading ? (
           <SkeletonBanner />
         ) : (
-          <div className="relative w-full h-[75vh] overflow-hidden flex items-center justify-center">
+          <div className="relative w-full md:h-[75vh] h-[45vh] overflow-hidden flex items-center justify-center">
           <img
             src={slides[currentIndex].image}
             alt={slides[currentIndex].title}
@@ -81,7 +81,7 @@ export default function Home() {
 
             <button
               onClick={prevSlide}
-              className="text-3xl bg-white/20 hover:bg-white/40 transition rounded-full p-3 text-white"
+              className="text-3xl bg-bgWhite/20 hover:bg-bgWhite/40 transition rounded-full p-3 text-white"
             >
               <IoIosArrowBack />
             </button>
@@ -98,7 +98,7 @@ export default function Home() {
 
             <button
               onClick={nextSlide}
-              className="text-3xl bg-white/20 hover:bg-white/40 transition rounded-full p-3 text-white"
+              className="text-3xl bg-bgWhite/20 hover:bg-bgWhite/40 transition rounded-full p-3 text-white"
             >
               <IoIosArrowForward />
             </button>
