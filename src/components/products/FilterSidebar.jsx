@@ -13,14 +13,14 @@ export default function FilterSidebar({
 
   if (isLoading) {
     return (
-      <div className="sticky top-4 rounded-xl bg-white p-4 shadow-md">
+      <div className="sticky top-4 rounded-xl bg-bgWhite p-4 shadow-md">
         <p className="text-sm text-gray-500">Cargando filtros...</p>
       </div>
     );
   }
 
   return (
-    <div className="sticky top-4 rounded-xl bg-white p-4 shadow-md md:p-5">
+    <div className="sticky top-4 rounded-xl bg-bgWhite p-4 shadow-md md:p-5">
       
       {hasFilters && (
         <section className="mb-6">
@@ -219,7 +219,7 @@ export default function FilterSidebar({
               category: e.target.value,
             })
           }
-          className="w-full rounded-md border border-gray-300 bg-white p-2 text-base capitalize outline-none transition focus:border-primary"
+          className="w-full rounded-md border border-gray-300 bg-bgWhite p-2 text-base capitalize outline-none transition focus:border-primary"
         >
           <option value="">Todas</option>
 

@@ -1,6 +1,6 @@
 export default function ProductsToolbar({ sortBy, setSortBy }) {
   return (
-    <div className="flex items-center justify-end shadow-lg mb-4 p-4 bg-white gap-4 rounded-2xl">
+    <div className="flex items-center justify-end shadow-lg mb-4 p-4 bg-bgWhite gap-4 rounded-2xl">
       <h4>Ordenar por:</h4>
       <select
       value={sortBy}

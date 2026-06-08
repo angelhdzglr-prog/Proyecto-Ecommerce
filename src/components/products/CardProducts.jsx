@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 export default function CardProducts({ prod }) {
   const { addCart } = useCart();
   return (
-    <div className="flex flex-col justify-between border rounded-2xl p-4 bg-white transition pt-4 hover:-translate-y-1 hover:shadow-lg">
+    <div className="flex flex-col justify-between border rounded-2xl p-4 bg-bgWhite transition pt-4 hover:-translate-y-1 hover:shadow-lg">
       <Link
       to={`/products/${prod.id}`}
       
@@ -18,8 +18,8 @@ export default function CardProducts({ prod }) {
       />
 
       <div>
-        <h3 className="text-base font-semibold">{prod.title}</h3>
-        <p className="text-2xl py-2 font-bold text-primary">
+        <h3 className="text-xl font-semibold">{prod.title}</h3>
+        <p className="text-2xl font-bold text-primary">
           $ {prod.price}
         </p>
         <Rating value={prod.rating}/>

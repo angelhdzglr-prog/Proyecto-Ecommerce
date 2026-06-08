@@ -92,7 +92,7 @@ export default function ProductsContent({
           Filtros
 
           {activeFiltersCount > 0 && (
-            <span className="w-[18px] h-[18px] rounded-full bg-white text-accent text-sm font-bold flex items-center justify-center">
+            <span className="w-[18px] h-[18px] rounded-full bg-bgWhite text-accent text-sm font-bold flex items-center justify-center">
               {activeFiltersCount}
             </span>
           )}
@@ -112,13 +112,13 @@ export default function ProductsContent({
 
       {showFilters && (
         <aside
-          className={`fixed top-0 left-0 w-[85%] max-w-[320px] h-screen bg-white z-30 overflow-y-auto shadow-xl transition-transform duration-300 ${
+          className={`fixed top-0 left-0 w-[85%] max-w-[320px] h-screen bg-bgWhite z-30 overflow-y-auto shadow-xl transition-transform duration-300 ${
             openFilters
               ? 'translate-x-0'
               : '-translate-x-full'
           }`}
         >
-          <div className="sticky top-0 z-10 flex justify-between items-center p-4 border-b border-[#050505] bg-white">
+          <div className="sticky top-0 z-10 flex justify-between items-center p-4 border-b border-[#050505] bg-bgWhite">
             <h3 className="text-xl font-semibold text-[#08060d]">
               Filtros
             </h3>
