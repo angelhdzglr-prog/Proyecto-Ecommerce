@@ -7,6 +7,7 @@ import { Toaster } from 'react-hot-toast'
 import { CartContext } from './context/CartContext.jsx'
 import { FavContext } from './context/FavContext.jsx'
 import 'react-loading-skeleton/dist/skeleton.css';
+import { HelmetProvider } from 'react-helmet-async';
 
 const queryClient = new QueryClient();
 
@@ -15,7 +16,9 @@ createRoot(document.getElementById('root')).render(
       <StrictMode>
         <FavContext>
         <CartContext>
+        <HelmetProvider>
         <App />
+        </HelmetProvider>
         </CartContext>
         </FavContext>
         <Toaster

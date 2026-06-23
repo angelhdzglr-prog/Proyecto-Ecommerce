@@ -10,11 +10,17 @@ import { CategoryPage } from '../pages/product/CategoryPage';
 import CartPage from '../pages/cart/CartPage';
 import FavPages from '../pages/fav/FavPages';
 import NotFound from '../pages/NotFound';
+import ScrollToTop from '../components/shared/ScrollToTop';
 
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: <Layout />,
+    element: (
+      <>
+        <ScrollToTop />
+        <Layout />
+      </>
+    ),
 
     children: [
       {

@@ -2,29 +2,44 @@ import { useParams } from "react-router-dom";
 import { useGetProductById } from "../../hooks/useGetProductById";
 import ProductMain from "../../components/products/ProductMain";
 import ProductReviews from "../../components/products/ProductReviews";
-import Spinner from "../../components/shared/Spinner";
 import ProductSpecs from "../../components/products/ProductSpecs";
 import BreadCrumb from "../../components/shared/BreadCrumb";
 import SkeletonDetails from "../../components/skeletons/SkeletonDetails";
 import SkeletonBreadcrumb from "../../components/skeletons/SkeletonBreadcrumb";
+import { Helmet } from "react-helmet-async";
+import { useEffect } from "react";
 
 
 export default function ProductsDetails(){
-    const {id} = useParams();
-    const {data: datos ,isLoading, isError, error} = useGetProductById(id);
+  const { id } = useParams();
 
-    if (isLoading) {
-        return(
-            <div>
-                <SkeletonDetails />
-                <SkeletonBreadcrumb />
-            </div>
-        ) 
+  const {
+    data: datos,
+    isLoading,
+    isError,
+    error,
+  } = useGetProductById(id);
+
+  useEffect(() => {
+    if (datos?.title) {
+      document.title = `${datos.title} | Emarket`;
     }
+  }, [datos?.title]);
 
-    if(isError) return <p>Error: {error.message}</p>
+  if (isLoading) {
+    return (
+      <div>
+        <SkeletonDetails />
+        <SkeletonBreadcrumb />
+      </div>
+    );
+  }
 
+  if (isError) {
+    return <p>Error: {error.message}</p>;
+  }
     return(
+        <>
         <div>
             <BreadCrumb
         items={[
@@ -40,5 +55,6 @@ export default function ProductsDetails(){
                 <ProductReviews datos={datos} />
             </div>
         </div>
+        </>
     )
 }

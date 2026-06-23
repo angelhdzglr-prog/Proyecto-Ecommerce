@@ -6,6 +6,7 @@ import Spinner from '../components/shared/Spinner';
 
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import SkeletonBanner from '../components/skeletons/SkeletonBanner';
+import { Helmet } from 'react-helmet-async';
 
 export default function Home() {
   const { data: categories = [], isLoading } = useGetCategories();
@@ -65,6 +66,14 @@ export default function Home() {
   );
 
   return (
+    <>
+    <Helmet>
+        <title>Inicio | Emarket</title>
+        <meta
+          name="description"
+          content="Encuentra los mejores productos para tu hogar, tecnología y más."
+        />
+      </Helmet>
     <div>
       <div className="w-full md:max-w-[1400px] md:mx-auto md:px-6 px-4">
         {isLoading ? (
@@ -175,5 +184,6 @@ export default function Home() {
         />
       </div>
     </div>
+    </>
   );
 }

@@ -3,7 +3,7 @@ import Spinner from '../../components/shared/Spinner';
 import ListProducts from '../../components/products/ListProducts';
 import SkeletonCard from '../../components/skeletons/SkeletonCard';
 import BreadCrumb from '../../components/shared/BreadCrumb';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useGetProductByCategory } from '../../hooks/useGetProductByCategory';
 import ProductsContent from '../../components/products/ProductsContent';
 
@@ -45,6 +45,12 @@ export function CategoryPage() {
   const products = data?.products ?? [];
   const total = data?.total ?? 0;
   const totalPages = Math.ceil(total / limit);
+
+    useEffect(() => {
+      if (slug) {
+        document.title = `${slug} | Emarket`;
+      }
+    }, [slug]);
 
   if (isError) return <p className="error">Error: {error.message}</p>;
 

@@ -3,7 +3,7 @@ import { useGetProductsBySearch } from '../../hooks/useGetProductsBySearch';
 import Spinner from '../../components/shared/Spinner';
 import ListProducts from '../../components/products/ListProducts';
 import ProductsContent from '../../components/products/ProductsContent';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function SearchProducts() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -43,6 +43,12 @@ export default function SearchProducts() {
   const products = data?.products ?? [];
   const total = data?.total ?? 0;
   const totalPages = Math.ceil(total / limit);
+
+    useEffect(() => {
+      if (query) {
+        document.title = `Resultados de ${query} | Emarket`;
+      }
+    }, [query]);
 
   
   if (isError) return <p>Error: {error.message}</p>;

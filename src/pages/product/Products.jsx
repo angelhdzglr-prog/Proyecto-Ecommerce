@@ -9,6 +9,7 @@ import SkeletonCard from '../../components/skeletons/SkeletonCard';
 import SkeletonFilter from '../../components/skeletons/SkeletonFilter';
 import SkeletonToolbar from '../../components/skeletons/SkeletonToolbar';
 import ProductsContent from '../../components/products/ProductsContent';
+import { Helmet } from 'react-helmet-async';
 
 export default function Products() {
   const [page, setPage] = useState(1);
@@ -56,6 +57,14 @@ export default function Products() {
   }
 
   return (
+    <>
+    <Helmet>
+            <title>Productos | Emarket</title>
+            <meta
+              name="description"
+              content="Encuentra lo que estes buscando."
+            />
+    </Helmet>
     <div className="max-w-[1400px] mx-auto px-4 md:px-6 w-full">
       <ProductsContent
               title="Productos"
@@ -70,5 +79,6 @@ export default function Products() {
               showToolbar
             />
     </div>
+    </>
   );
 }
