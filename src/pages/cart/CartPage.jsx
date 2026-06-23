@@ -1,6 +1,7 @@
 import toast from 'react-hot-toast';
 import { FaTrash } from 'react-icons/fa';
 import useCart from '../../hooks/useCart';
+import Empty from '../../components/shared/Empty';
 
 export default function CartPage() {
   const {
@@ -16,12 +17,13 @@ export default function CartPage() {
   return (
     <div className="bg-bgWhite">
       <div className="max-w-[93vw] w-full mx-auto px-6">
-      <h1 className="text-4xl font-bold text-[#006064] my-6">Carrito</h1>
+      <h1 className="text-4xl font-bold text-primary my-6">Carrito</h1>
 
       {cart.length === 0 ? (
-        <div className="border border-gray-300 p-8 text-center">
-          <p>Tu carrito de Market esta vacio</p>
-        </div>
+        <Empty
+          title="Carrito Vacio"
+          text="Explora nuestros productos y encuentra lo qu necesitas"
+        />
       ) : (
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-[2fr_1fr]">
           <div>
@@ -52,7 +54,7 @@ export default function CartPage() {
                       <strong>Cantidad: </strong>
 
                       <button
-                        className="flex h-[30px] w-[30px] items-center justify-center rounded-[5px] bg-[#006064] text-white hover:bg-[#ec5840]"
+                        className="flex h-[30px] w-[30px] items-center justify-center rounded-[5px] bg-primary text-white hover:bg-accent"
                         onClick={() => decrementQuantity(c.id)}
                       >
                         {c.quantity === 1 ? <FaTrash /> : <p>-</p>}
@@ -61,7 +63,7 @@ export default function CartPage() {
                       <p>{c.quantity}</p>
 
                       <button
-                        className="flex h-[30px] w-[30px] items-center justify-center rounded-[5px] bg-[#006064] text-white hover:bg-[#ec5840]"
+                        className="flex h-[30px] w-[30px] items-center justify-center rounded-[5px] bg-primary text-white hover:bg-accent"
                         onClick={() => incrementQuantity(c.id)}
                       >
                         +
@@ -71,7 +73,7 @@ export default function CartPage() {
                 </div>
 
                 <div className="flex items-start justify-around">
-                  <p className="text-2xl font-extrabold text-[#ec5840]">
+                  <p className="text-2xl font-extrabold text-accent">
                     ${(c.price * c.quantity).toFixed(2)}
                   </p>
 
@@ -96,12 +98,12 @@ export default function CartPage() {
             <h3 className="font-bold mt-4">No. productos:</h3>
             <p>{totalItems}</p>
 
-            <button className="w-full rounded-[6px] bg-[#ec5840] px-4 py-2 font-semibold text-white transition hover:bg-[#d8432e] mt-4">
+            <button className="w-full rounded-[6px] bg-accent px-4 py-2 font-semibold text-white transition hover:bg-[#d8432e] mt-4">
               Proceder al pago
             </button>
 
             <button
-              className="w-full rounded-[6px] bg-[#f4f3ec] px-4 py-2 font-semibold text-[#08060d] transition hover:bg-[#c70c0c] hover:text-white mt-4"
+              className="w-full rounded-[6px] bg-[#f4f3ec] px-4 py-2 font-semibold text-textHeading transition hover:bg-[#c70c0c] hover:text-white mt-4"
               onClick={() => clearCart()}
             >
               Borrar Carrito

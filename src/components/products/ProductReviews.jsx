@@ -4,7 +4,7 @@ export default function ProductReviews({ datos }) {
   return (
     <div className="py-6">
       
-      <h2 className="text-3xl font-bold text-[#006064] border-b border-gray-300 pb-2">
+      <h2 className="text-3xl font-bold text-primary border-b border-gray-300 pb-2">
         Reseñas
       </h2>
 

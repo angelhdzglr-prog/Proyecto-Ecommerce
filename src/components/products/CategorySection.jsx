@@ -13,7 +13,7 @@ export default function CategorySection({ category }) {
   return (
     <section>
       <div className="mb-4">
-        <h3 className="text-xl font-bold text-[#006064]">
+        <h3 className="text-xl font-bold text-primary">
           {category.name}
         </h3>
       </div>

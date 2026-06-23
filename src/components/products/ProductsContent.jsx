@@ -119,12 +119,12 @@ export default function ProductsContent({
           }`}
         >
           <div className="sticky top-0 z-10 flex justify-between items-center p-4 border-b border-[#050505] bg-bgWhite">
-            <h3 className="text-xl font-semibold text-[#08060d]">
+            <h3 className="text-xl font-semibold text-textHeading">
               Filtros
             </h3>
 
             <button
-              className="text-2xl text-[#08060d]"
+              className="text-2xl text-textHeading"
               onClick={() => setOpenFilters(false)}
             >
               ✕
@@ -175,7 +175,7 @@ export default function ProductsContent({
             <ProductsEmpty />
           ) : (
             <>
-              <p className="my-4 text-[#08060d]">
+              <p className="my-4 text-textHeading">
                 {filteredProducts.length} encontrados.
               </p>
 

@@ -6,23 +6,31 @@ export default {
   ],
   theme: {
     extend: {
-      colors: {
-        fondo: '#f5f5f5',
-        primary: '#006064',
-        primaryHover: '#005255',
-        primaryLight: '#0096aa',
-        accent: '#ec5840',
-        accentHover: '#d8432e',
-        texto: '#6b6375',
-        mostaza: '#ffce1b',
-        menta: '#98FF98',
-        fondo2:  '#fffbf2',
-        bgWhite: '#ffffff',
-        bgCard: '#f9f9f9',
-        bgSecond: '#f0f0f0',
-        textH: '#08060d',
-        error: '#c70c0c',
-      },
+        colors: {
+    primary: '#006064',
+    primaryHover: '#005255',
+    primaryLight: '#0096aa',
+
+    accent: '#ec5840',
+    accentHover: '#d8432e',
+
+    textBasic: '#6b6375',
+    textHeading: '#08060d',
+
+    bg: '#f5f5f5',
+    bgSecond: '#f0f0f0',
+    bgCard: '#f9f9f9',
+
+    border: '#d8d8d8',
+
+    golden: '#f59e0b',
+
+    error: '#c70c0c',
+    ligthGrey: '#f3f3f3',
+	  darkGrey: '#6d6d6d',
+	  grey: '#cccccc',
+  },
+
     },
   },
   plugins: [],
