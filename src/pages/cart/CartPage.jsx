@@ -2,6 +2,7 @@ import toast from 'react-hot-toast';
 import { FaTrash } from 'react-icons/fa';
 import useCart from '../../hooks/useCart';
 import Empty from '../../components/shared/Empty';
+import { Helmet } from 'react-helmet-async';
 
 export default function CartPage() {
   const {
@@ -15,6 +16,14 @@ export default function CartPage() {
   } = useCart();
 
   return (
+    <>
+    <Helmet>
+            <title>Carrito | Emarket</title>
+            <meta
+              name="description"
+              content="Encuentra los mejores productos para tu hogar, tecnología y más."
+            />
+          </Helmet>
     <div className="bg-bgWhite">
       <div className="max-w-[93vw] w-full mx-auto px-6">
       <h1 className="text-4xl font-bold text-primary my-6">Carrito</h1>
@@ -113,5 +122,6 @@ export default function CartPage() {
       )}
     </div>
     </div>
+    </>
   );
 }
