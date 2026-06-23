@@ -1,35 +1,101 @@
 import { Link } from "react-router-dom";
 import Rating from "../shared/Rating";
-import useCart from "../../hooks/useCart";
 import toast from "react-hot-toast";
+import useCart from "../../hooks/useCart";
+import useFav from "../../hooks/useFav";
+
+import { FaRegHeart, FaHeart, FaHeartBroken } from "react-icons/fa";
 
 export default function CardProducts({ prod }) {
   const { addCart } = useCart();
-  return (
-    <div className="flex flex-col justify-between border rounded-2xl p-4 bg-bgWhite transition pt-4 hover:-translate-y-1 hover:shadow-lg">
-      <Link
-      to={`/products/${prod.id}`}
-      
-    >
-      <img
-        src={prod.images[0]}
-        alt={prod.title}
-        className="h-[180px] object-contain w-full"
-      />
+  const { addFav, favorites } = useFav();
 
-      <div>
-        <h3 className="text-xl font-semibold">{prod.title}</h3>
-        <p className="text-2xl font-bold text-primary">
-          $ {prod.price}
-        </p>
-        <Rating value={prod.rating}/>
-        <p className="text-sm text-gray-500">{prod.category}</p>
-      </div>
-    </Link>
-    <button className="bg-accent text-sm text-fondo font-semibold w-full rounded-md p-2 my-2 hover:bg-accentHover" onClick={() => {
+  const isFavorite = favorites.some(
+    (item) => item.id === prod.id
+  );
+
+  return (
+    <div className="flex flex-col justify-between rounded-2xl bg-bgCard p-4 transition-all duration-150 hover:-translate-y-[6px] hover:shadow-xl">
+
+      <button
+        className="w-10 h-10 rounded-full bg-ligthGrey flex items-center justify-center border-none cursor-pointer self-end"
+        onClick={(e) => {
+          e.stopPropagation();
+
+          if (isFavorite) {
+            toast.error("Se eliminó de favoritos", {
+              icon: (
+                <FaHeartBroken
+                  className="text-red-600"
+                />
+              ),
+            });
+          } else {
+            toast.success("Se agregó a favoritos", {
+              icon: (
+                <FaHeart
+                  className="text-green-700"
+                />
+              ),
+            });
+          }
+
+          addFav(prod);
+        }}
+      >
+        {isFavorite ? (
+          <FaHeart className="w-5 h-5 text-red-500"/>
+        ) : (
+          <FaRegHeart className="w-5 h-5 text-textHeading" />
+        )}
+      </button>
+
+      <Link
+        to={`/products/${prod.id}`}
+        state={{
+          breadcrumb: [
+            "Home",
+            prod.category,
+            prod.title,
+          ],
+        }}
+        className="flex flex-col flex-1 justify-between pb-4 no-underline"
+      >
+        <img
+          src={prod.images[0]}
+          alt={prod.title}
+          className="h-[180px] w-full object-contain transition-all duration-150"
+        />
+
+        <div>
+          <h3 className="text-base font-semibold">
+            {prod.title}
+          </h3>
+
+          <Rating value={prod.rating} />
+
+          <p className="text-[1.2rem] font-bold text-primary">
+            {new Intl.NumberFormat("de-DE", {
+              style: "currency",
+              currency: "MXN",
+            }).format(prod.price)}
+          </p>
+
+          <p className="text-[0.8rem] text-textBasiccapitalize">
+            {prod.category}
+          </p>
+        </div>
+      </Link>
+
+      <button
+        className="w-full rounded-md bg-accent p-[0.6rem] font-semibold text-white transition-colors duration-200 hover:bg-[#d8432e]"
+        onClick={() => {
+          toast.success("Se agrego al carrito");
           addCart(prod);
-          toast.success('Se agrego al carrito')
-        }}>Agregar al carrito</button>
+        }}
+      >
+        Agregar al carrito
+      </button>
     </div>
   );
 }

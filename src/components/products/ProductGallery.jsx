@@ -6,11 +6,11 @@ export default function ProductGallery({ images }) {
   return (
     <div className="w-full h-full text-center py-12">
       
-      <div className="w-full h-[80%] bg-gray-50 flex items-center justify-center overflow-hidden">
+      <div className="w-full h-[80%] bg-bgSecond flex items-center justify-center overflow-hidden">
         <img
           src={selected}
           alt="producto"
-          className="w-full object-contain bg-gray-50 rounded-xl p-4"
+          className="w-full object-contain bg-bgSecond rounded-xl p-4"
         />
       </div>
 
@@ -22,7 +22,7 @@ export default function ProductGallery({ images }) {
             onClick={() => setSelected(img)}
             className={`w-[60px] cursor-pointer transition-opacity ${
               selected === img
-                ? 'border-2 border-[#ec5840] opacity-100'
+                ? 'border-2 border-accent opacity-100'
                 : 'opacity-70 hover:opacity-100'
             }`}
           />

@@ -107,7 +107,7 @@ export default function Home() {
         )}
 
         <section className="my-12">
-          <h2 className="text-3xl font-bold text-[#006064] mb-4">
+          <h2 className="text-3xl font-bold text-primary mb-4">
             Gadgets
           </h2>
 
@@ -118,13 +118,13 @@ export default function Home() {
 
         <Banner
           image="https://images.pexels.com/photos/8763072/pexels-photo-8763072.jpeg"
-          titulo="Mueblería"
-          text="Renueva tu hogar con estilo"
+          titulo="Diseña el hogar que imaginas"
+          text="Muebles modernos que combinan comodidad, calidad y estilo."
           little
         />
 
         <section className="my-12">
-          <h2 className="text-3xl font-bold text-[#006064] mb-4">
+          <h2 className="text-3xl font-bold text-primary mb-4">
             Muebles para tu hogar
           </h2>
 
@@ -135,13 +135,13 @@ export default function Home() {
 
         <Banner
           image="https://images.pexels.com/photos/17689341/pexels-photo-17689341.jpeg"
-          titulo="Smartphones"
-          text="La última tecnología en la palma de tu mano."
+          titulo="Mantente Conectado"
+          text="Los smartphones más innovadores con el mejor rendimiento."
           little
         />
 
         <section className="my-12">
-          <h2 className="text-3xl font-bold text-[#006064] mb-4">
+          <h2 className="text-3xl font-bold text-primary mb-4">
             Smartphones más vendidos
           </h2>
 
@@ -152,13 +152,13 @@ export default function Home() {
 
         <Banner
           image="https://images.pexels.com/photos/17689341/pexels-photo-17689341.jpeg"
-          titulo="Tu mejor opción esta aquí"
-          text="Descubre nuestros increíbles precios"
+          titulo="Potencia para cada proyecto"
+          text="Laptops diseñadas para trabajar, estudiar y crear sin límites."
           little
         />
 
         <section className="my-12">
-          <h2 className="text-3xl font-bold text-[#006064] mb-4">
+          <h2 className="text-3xl font-bold text-primary mb-4">
             Laptops recomendadas
           </h2>
 
@@ -169,8 +169,8 @@ export default function Home() {
 
         <Banner
           image="https://images.pexels.com/photos/17689341/pexels-photo-17689341.jpeg"
-          titulo="Tu mejor opción esta aquí"
-          text="Descubre nuestros increíbles precios"
+          titulo="Ofertas que no querrás perder"
+          text="Encuentra productos seleccionados con precios increíbles por tiempo limitado."
           little
         />
       </div>

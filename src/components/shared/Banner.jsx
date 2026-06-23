@@ -12,7 +12,7 @@ export default function Banner({ image, titulo, text, little }) {
       />
 
       <div className="relative z-10 flex flex-col justify-center items-center text-center bg-black/20 w-[80%] h-[80%] p-6">
-        <h2 className="text-white text-4xl font-bold">{titulo}</h2>
+        <h2 className="text-4xl font-bold">{titulo}</h2>
         <p className="text-white text-lg">{text}</p>
       </div>
     </div>
