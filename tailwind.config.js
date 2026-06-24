@@ -20,6 +20,7 @@ export default {
     bg: '#f5f5f5',
     bgSecond: '#f0f0f0',
     bgCard: '#f9f9f9',
+    bgWhite: '#ffffff',
 
     border: '#d8d8d8',
 
