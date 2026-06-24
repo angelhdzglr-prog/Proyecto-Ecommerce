@@ -5,7 +5,7 @@ export default function ProductsToolbar({ sortBy, setSortBy }) {
       <select
       value={sortBy}
         onChange={(e) => setSortBy(e.target.value)}
-        className="p-2 rounded-md text-xl border-black border-2"
+        className="p-2 rounded-md text-xl border-black border-2 bg-white"
       >
         <option value="">Todos</option>
         <option value="price-asc">Menor precio</option>

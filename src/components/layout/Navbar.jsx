@@ -43,7 +43,7 @@ export default function Navbar() {
         
         <div
           onClick={() => navigate('/')}
-          className="h-[40px] w-[120px] shrink-0 cursor-pointer bg-[url('/src/assets/Logo-1.png')] bg-cover bg-center md:h-[50px] md:w-[150px] max-[965px]:h-[45px] max-[965px]:w-[45px] max-[770px]:bg-[url('/src/assets/LogoSmall.png')]"
+          className="h-[40px] w-[120px] shrink-0 cursor-pointer bg-[url('/src/assets/Logo-1.png')] bg-cover bg-center md:h-[50px] md:w-[150px] max-[965px]:h-[45px] max-[965px]:w-[45px] max-[767px]:bg-[url('/src/assets/LogoSmall.png')]"
         />
 
         

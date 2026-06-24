@@ -8,7 +8,7 @@ export default function FavProducts({ fav }) {
 
   return (
     <div className="flex flex-col md:flex-row justify-between items-center gap-4 p-4 border-b border-[#ccc]">
-      <div className="flex gap-4 items-center">
+      <div className="flex flex-col sm:flex-row gap-4 items-center">
         <img
           src={fav.images[0]}
           alt={fav.title}

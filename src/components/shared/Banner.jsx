@@ -1,7 +1,7 @@
 export default function Banner({ image, titulo, text, little }) {
   return (
     <div
-      className={`relative w-full overflow-hidden flex items-center justify-center ${
+      className={`relative w-full mb-4 overflow-hidden flex items-center justify-center ${
         little ? "h-[40vh]" : "h-[60vh]"
       }`}
     >
