@@ -75,10 +75,7 @@ export default function CardProducts({ prod }) {
           <Rating value={prod.rating} />
 
           <p className="text-[1.2rem] font-bold text-primary">
-            {new Intl.NumberFormat("de-DE", {
-              style: "currency",
-              currency: "MXN",
-            }).format(prod.price)}
+            $ {prod.price}
           </p>
 
           <p className="text-[0.8rem] text-textBasiccapitalize">

@@ -1,4 +1,6 @@
 import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom';
+
 import useCart from '../../hooks/useCart';
 import useFav from '../../hooks/useFav';
 
@@ -7,57 +9,137 @@ export default function FavProducts({ fav }) {
   const { addCart } = useCart();
 
   return (
-    <div className="flex flex-col md:flex-row justify-between items-center gap-4 p-4 border-b border-[#ccc]">
-      <div className="flex flex-col sm:flex-row gap-4 items-center">
+    <div
+      className="
+        grid
+        grid-cols-[120px_minmax(0,1fr)_auto]
+        items-center
+        gap-12
+        border
+        border-border
+        bg-bgCard
+        p-8
+        transition
+        hover:shadow-md
+
+        max-[720px]:grid-cols-[100px_1fr]
+
+        max-[380px]:grid-cols-1
+        max-[380px]:gap-0
+      "
+    >
+      {/* Imagen */}
+      <div className="flex gap-2 items-center max-[380px]:justify-center">
         <img
           src={fav.images[0]}
           alt={fav.title}
-          className="h-[180px] object-contain"
+          className="
+            h-[150px]
+            w-[150px]
+            shrink-0
+            object-contain
+
+            max-[380px]:h-[200px]
+            max-[380px]:w-[200px]
+          "
         />
-
-        <div>
-          <h3 className="text-primary font-bold">
-            {fav.title}
-          </h3>
-
-          {fav.brand && (
-            <p className="text-textHeading">
-              por <span className="uppercase">{fav.brand}</span>
-            </p>
-          )}
-
-          <p className="text-textBasic text-sm">
-            {fav.category}
-          </p>
-
-          <p className="text-accent font-extrabold text-2xl mt-5">
-            {new Intl.NumberFormat('de-DE', {
-              style: 'currency',
-              currency: 'MXN',
-            }).format(fav.price)}
-          </p>
-        </div>
       </div>
 
-      <div className="flex flex-col gap-2 w-full md:w-[260px]">
-        <button
-          className="w-full p-[0.6rem] bg-ligthGrey text-textHeading font-semibold rounded-[8px] transition-all duration-300 hover:bg-error hover:text-white"
-          onClick={() => {
-            toast.error('Se eliminó de favoritos');
-            removeFav(fav.id);
-          }}
+      {/* Información */}
+      <div className="pb-4 max-[380px]:pb-4">
+        <Link
+          to={`/products/${fav.id}`}
+          className="inline-block hover:underline"
         >
-          Eliminar de Favoritos
-        </button>
+          <h3
+            className="
+              mb-4
+              text-3xl
+              font-semibold
+              leading-8
 
+              max-[720px]:text-lg
+            "
+          >
+            {fav.title}
+          </h3>
+        </Link>
+
+        {fav.brand && (
+          <p>
+            por{' '}
+            <span className="uppercase">
+              {fav.brand}
+            </span>
+          </p>
+        )}
+
+        <p className="text-sm text-textBasic">
+          {fav.category}
+        </p>
+
+        <p className="text-sm text-textBasic">
+          {fav.warrantyInformation}
+        </p>
+
+        <p className="text-sm text-textBasic">
+          {fav.shippingInformation}
+        </p>
+
+        <p className="mt-5 text-xl font-medium text-accent">
+          $ {fav.price}
+        </p>
+      </div>
+
+      {/* Botones */}
+      <div
+        className="
+          flex
+          flex-col
+          gap-2
+
+          max-[720px]:col-span-2
+
+          max-[380px]:col-span-1
+        "
+      >
         <button
-          className="w-full p-[0.6rem] bg-accent text-white font-semibold rounded-[8px] transition-colors duration-200 hover:bg-accentHover"
+          className="
+            w-full
+            rounded-md
+            bg-accent
+            py-2.5
+            font-semibold
+            text-white
+            transition
+            hover:bg-accentHover
+          "
           onClick={() => {
-            toast.success('Se agregó al carrito');
+            toast.success('Se agrego al carrito');
             addCart(fav);
           }}
         >
           Agregar al Carrito
+        </button>
+
+        <button
+          className="
+            w-full
+            rounded-md
+            bg-ligthGrey
+            p-2.5
+            font-semibold
+            text-textHeading
+            transition
+            hover:bg-error
+            hover:text-white
+          "
+          onClick={() => {
+            toast.error('Se elimino de favoritos');
+            removeFav(fav.id);
+          }}
+        >
+          Eliminar de Favoritos
         </button>
       </div>
     </div>

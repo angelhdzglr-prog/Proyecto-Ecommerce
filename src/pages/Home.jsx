@@ -121,7 +121,7 @@ export default function Home() {
           </h2>
 
           {mobileAccessories && (
-            <CategorySection category={mobileAccessories} />
+            <CategorySection category={mobileAccessories.slug} />
           )}
         </section>
 
@@ -138,7 +138,7 @@ export default function Home() {
           </h2>
 
           {furniture && (
-            <CategorySection category={furniture} />
+            <CategorySection category={furniture.slug} />
           )}
         </section>
 
@@ -155,7 +155,7 @@ export default function Home() {
           </h2>
 
           {smartphones && (
-            <CategorySection category={smartphones} />
+            <CategorySection category={smartphones.slug} />
           )}
         </section>
 
@@ -172,7 +172,7 @@ export default function Home() {
           </h2>
 
           {laptops && (
-            <CategorySection category={laptops} />
+            <CategorySection category={laptops.slug} />
           )}
         </section>
 
