@@ -8,6 +8,7 @@ import SkeletonDetails from "../../components/skeletons/SkeletonDetails";
 import SkeletonBreadcrumb from "../../components/skeletons/SkeletonBreadcrumb";
 import { Helmet } from "react-helmet-async";
 import { useEffect } from "react";
+import CategorySection from "../../components/products/CategorySection";
 
 
 export default function ProductsDetails(){
@@ -51,6 +52,10 @@ export default function ProductsDetails(){
       />
             <div className="max-w-[1300px] mx-auto px-6 w-full bg-bgWhite">
                 <ProductMain datos={datos} />
+                <div style={{ margin: '2rem 0' }}>
+                  <h3 className="font-extrabold">Tambien te podria interesar:</h3>
+                  <CategorySection category={datos.category} />
+                </div>
                 <ProductSpecs datos={datos} />
                 <ProductReviews datos={datos} />
             </div>

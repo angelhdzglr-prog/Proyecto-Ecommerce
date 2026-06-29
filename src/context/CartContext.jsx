@@ -13,7 +13,7 @@ export const CartContext = ({ children }) => {
     .reduce((c, car) => car.price * car.quantity + c, 0)
     .toFixed(2);
 
-  const totalItems = cart.reduce((c, car) => car.quantity + c, 0);
+  const totalItems = cart.reduce((c, car) => Number(car.quantity) + c, 0);
 
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart));
@@ -43,7 +43,7 @@ export const CartContext = ({ children }) => {
         c.id === id
           ? {
               ...c,
-              quantity: c.quantity + 1,
+              quantity: Number(c.quantity) + 1,
             }
           : c
       )
@@ -53,13 +53,30 @@ export const CartContext = ({ children }) => {
   const decrementQuantity = (id) => {
     setCart((prev) =>
       prev
-        .map((c) => (c.id === id ? { ...c, quantity: c.quantity - 1 } : c))
+        .map((c) =>
+          c.id === id ? { ...c, quantity: Number(c.quantity) - 1 } : c
+        )
         .filter((c) => c.quantity > 0)
     );
   };
 
   const clearCart = () => {
     setCart([]);
+  };
+
+  const updateQuantity = (id, quantity) => {
+    const newQuantity = quantity < 1 || isNaN(quantity) ? 1 : quantity;
+
+    setCart((prev) =>
+      prev.map((item) =>
+        item.id === id
+          ? {
+              ...item,
+              quantity: newQuantity,
+            }
+          : item
+      )
+    );
   };
 
   return (
@@ -73,6 +90,7 @@ export const CartContext = ({ children }) => {
         decrementQuantity,
         totalItems,
         clearCart,
+        updateQuantity,
       }}
     >
       {children}
