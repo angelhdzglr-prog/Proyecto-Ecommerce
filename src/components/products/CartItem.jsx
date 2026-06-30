@@ -168,6 +168,7 @@ export default function CartItem({ c }) {
               rounded
               outline-none
               focus:border-primary
+              bg-white
               "
               onChange={(e) => setQuantity(e.target.value)}
               onBlur={() => {
