@@ -107,14 +107,14 @@ export default function Navbar() {
           </button>
 
           <button
-            className="flex items-center gap-2 rounded-lg bg-accent px-1 py-2 text-white shadow transition hover:bg-[#d8432e] md:px-4"
+            className="flex items-center gap-2 rounded-lg bg-accent px-2 py-2 text-white shadow transition hover:bg-[#d8432e] md:px-4"
             onClick={() => navigate('/shoppingcart')}
           >
             <div className="relative flex items-center justify-center">
               <FaShoppingCart className="h-6 w-6" />
 
               {totalItems > 0 && (
-                <span className="absolute -right-2 -top-1 flex h-[18px] min-w-[18px] items-center justify-center rounded-full bg-[#c70c0c] px-[2px] text-[0.6rem] font-bold text-white">
+                <span className="absolute -right-[.4rem] md:-right-2 -top-1 flex h-[14px] min-w-[14px] md:h-[18px] md:min-w-[18px] items-center justify-center rounded-full bg-error px-[2px] text-[0.6rem] font-bold text-white">
                   {totalItems > 99 ? '99+' : totalItems}
                 </span>
               )}
