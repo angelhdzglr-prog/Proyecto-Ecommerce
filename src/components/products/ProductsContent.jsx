@@ -146,7 +146,7 @@ export default function ProductsContent({
         </aside>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-8 items-start">
+      <div className="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-8">
         {showFilters && (
           <div className="hidden md:block">
             {isLoading ? (
