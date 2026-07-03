@@ -72,44 +72,7 @@ export default function ProductInfo({ datos }) {
           Agregar al carrito
         </button>
 
-        <button
-          className="
-            flex
-            w-full
-            items-center
-            justify-center
-            gap-2
-            rounded-md
-            bg-ligthGrey
-            py-3
-            font-semibold
-            text-textHeading
-            transition
-            hover:bg-error
-            hover:text-white
-          "
-          onClick={() => {
-            if (isFavorite) {
-              toast.error('Se eliminó de favoritos', {
-                icon: <FaHeartBroken style={{ color: 'red' }} />,
-              });
-            } else {
-              toast.success('Se agregó a favoritos', {
-                icon: <FaHeart style={{ color: 'green' }} />,
-              });
-            }
-
-            addFav(datos);
-          }}
-        >
-          {isFavorite ? (
-            <FaHeart className="text-xl text-red-500" />
-          ) : (
-            <FaRegHeart className="text-xl" />
-          )}
-
-          Agregar a favoritos
-        </button>
+        
       </div>
 
       <div className="space-y-2 text-textHeading">
