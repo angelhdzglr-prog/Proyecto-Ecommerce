@@ -5,10 +5,12 @@ import useCart from "../../hooks/useCart";
 import useFav from "../../hooks/useFav";
 
 import { FaRegHeart, FaHeart, FaHeartBroken } from "react-icons/fa";
+import useSeen from "../../hooks/useSeen";
 
 export default function CardProducts({ prod }) {
   const { addCart } = useCart();
   const { addFav, favorites } = useFav();
+  const { addSeen } = useSeen();
 
   const isFavorite = favorites.some(
     (item) => item.id === prod.id
@@ -60,6 +62,7 @@ export default function CardProducts({ prod }) {
           ],
         }}
         className="flex flex-col flex-1 justify-between pb-4 no-underline"
+        onClick={() => addSeen(prod)}
       >
         <img
           src={prod.images[0]}
