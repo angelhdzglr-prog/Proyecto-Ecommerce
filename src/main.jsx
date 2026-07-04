@@ -8,6 +8,7 @@ import { CartContext } from './context/CartContext.jsx'
 import { FavContext } from './context/FavContext.jsx'
 import 'react-loading-skeleton/dist/skeleton.css';
 import { HelmetProvider } from 'react-helmet-async';
+import { RecentlySeenContext } from './context/RecentlySeenContext.jsx'
 
 const queryClient = new QueryClient();
 
@@ -15,11 +16,13 @@ createRoot(document.getElementById('root')).render(
   <QueryClientProvider client={queryClient}>
       <StrictMode>
         <FavContext>
+        <RecentlySeenContext>
         <CartContext>
         <HelmetProvider>
         <App />
         </HelmetProvider>
         </CartContext>
+        </RecentlySeenContext>
         </FavContext>
         <Toaster
           position="bottom-center"

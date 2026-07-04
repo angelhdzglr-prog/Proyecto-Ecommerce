@@ -7,11 +7,15 @@ import Spinner from '../components/shared/Spinner';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import SkeletonBanner from '../components/skeletons/SkeletonBanner';
 import { Helmet } from 'react-helmet-async';
+import useSeen from '../hooks/useSeen';
+import ListProducts from '../components/products/ListProducts';
 
 export default function Home() {
   const { data: categories = [], isLoading } = useGetCategories();
 
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  const { seen } = useSeen();
 
   const slides = [
     {
@@ -75,7 +79,7 @@ export default function Home() {
         />
       </Helmet>
     <div>
-      <div className="w-full md:max-w-[1400px] md:mx-auto md:px-6 px-4">
+      <div className="w-full md:max-w-[1400px] md:mx-auto md:px-14 px-4">
         {isLoading ? (
           <SkeletonBanner />
         ) : (
@@ -113,6 +117,13 @@ export default function Home() {
             </button>
           </div>
         </div>
+        )}
+
+        {seen.length > 0 && (
+          <section className="my-12">
+            <h3 className="text-2xl font-bold text-primary mb-4" >Vuelve a ver estos productos</h3>
+            <ListProducts products={[...seen].reverse()} />
+          </section>
         )}
 
         <section className="my-12">

@@ -116,9 +116,6 @@ export default function FilterSidebar({
             className="min-w-0 flex-1 rounded-md border border-gray-300 bg-neutral-100 px-3 py-2 outline-none transition focus:border-primary"
           />
 
-          {/* <button className="flex h-9 w-9 items-center justify-center rounded-md bg-accent font-bold text-white transition hover:bg-accentHover">
-            &gt;
-          </button> */}
         </div>
       </section>
 
@@ -134,6 +131,7 @@ export default function FilterSidebar({
               name={radioGroup}
               value="5"
               checked={filters.rating === '5'}
+              className="bg-white"
               onChange={(e) =>
                 setFilters({
                   ...filters,
@@ -153,6 +151,7 @@ export default function FilterSidebar({
               name={radioGroup}
               value="4"
               checked={filters.rating === '4'}
+              className="bg-white"
               onChange={(e) =>
                 setFilters({
                   ...filters,
@@ -172,6 +171,7 @@ export default function FilterSidebar({
               name={radioGroup}
               value="3"
               checked={filters.rating === '3'}
+              className="bg-white"
               onChange={(e) =>
                 setFilters({
                   ...filters,
@@ -191,6 +191,7 @@ export default function FilterSidebar({
               name={radioGroup}
               value="2"
               checked={filters.rating === '2'}
+              className="bg-white"
               onChange={(e) =>
                 setFilters({
                   ...filters,
