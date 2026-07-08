@@ -19,38 +19,40 @@ export default function CardProducts({ prod }) {
   return (
     <div className="flex flex-col justify-between rounded-2xl bg-bgCard p-4 transition-all duration-150 hover:-translate-y-[6px] hover:shadow-xl">
 
-      <button
-        className="w-10 h-10 rounded-full bg-ligthGrey flex items-center justify-center border-none cursor-pointer self-end"
-        onClick={(e) => {
-          e.stopPropagation();
+    <div className="flex justify-start">
+            <button
+            className="w-10 h-10 rounded-full bg-ligthGrey flex items-center justify-center border-none cursor-pointer self-end"
+            onClick={(e) => {
+              e.stopPropagation();
 
-          if (isFavorite) {
-            toast.error("Se eliminó de favoritos", {
-              icon: (
-                <FaHeartBroken
-                  className="text-red-600"
-                />
-              ),
-            });
-          } else {
-            toast.success("Se agregó a favoritos", {
-              icon: (
-                <FaHeart
-                  className="text-green-700"
-                />
-              ),
-            });
-          }
+              if (isFavorite) {
+                toast.error("Se eliminó de favoritos", {
+                  icon: (
+                    <FaHeartBroken
+                      className="text-red-600"
+                    />
+                  ),
+                });
+              } else {
+                toast.success("Se agregó a favoritos", {
+                  icon: (
+                    <FaHeart
+                      className="text-green-700"
+                    />
+                  ),
+                });
+              }
 
-          addFav(prod);
-        }}
-      >
-        {isFavorite ? (
-          <FaHeart className="w-5 h-5 text-red-500"/>
-        ) : (
-          <FaRegHeart className="w-5 h-5 text-textHeading" />
-        )}
-      </button>
+              addFav(prod);
+            }}
+          >
+            {isFavorite ? (
+              <FaHeart className="w-5 h-5 text-red-500"/>
+            ) : (
+              <FaRegHeart className="w-5 h-5 text-textHeading" />
+            )}
+          </button>
+    </div>
 
       <Link
         to={`/products/${prod.id}`}
