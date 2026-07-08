@@ -14,6 +14,8 @@ export default function Home() {
   const { data: categories = [], isLoading } = useGetCategories();
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [nextIndex, setNextIndex] = useState(null);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   const { seen } = useSeen();
 
@@ -41,25 +43,34 @@ export default function Home() {
     },
   ];
 
-  useEffect(() => {
+    useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
     }, 5000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [currentIndex, isAnimating]);
 
-  const nextSlide = () => {
-    setCurrentIndex((prev) =>
-      prev === slides.length - 1 ? 0 : prev + 1
-    );
+  const changeSlide = (direction) => {
+    if (isAnimating) return;
+
+    const newIndex =
+      direction === 'next'
+        ? (currentIndex + 1) % slides.length
+        : (currentIndex - 1 + slides.length) % slides.length;
+
+    setNextIndex(newIndex);
+    setIsAnimating(true);
+
+    setTimeout(() => {
+      setCurrentIndex(newIndex);
+      setNextIndex(null);
+      setIsAnimating(false);
+    }, 450);
   };
 
-  const prevSlide = () => {
-    setCurrentIndex((prev) =>
-      prev === 0 ? slides.length - 1 : prev - 1
-    );
-  };
+  const nextSlide = () => changeSlide('next');
+  const prevSlide = () => changeSlide('prev');
 
   const furniture = categories.find((c) => c.slug === 'furniture');
   const smartphones = categories.find((c) => c.slug === 'smartphones');
@@ -83,40 +94,70 @@ export default function Home() {
         {isLoading ? (
           <SkeletonBanner />
         ) : (
-          <div className="relative w-full md:h-[75vh] h-[45vh] overflow-hidden flex items-center justify-center">
-          <img
-            src={slides[currentIndex].image}
-            alt={slides[currentIndex].title}
-            className="absolute top-0 left-0 w-full h-full object-cover"
-          />
+          <div className="relative flex h-[75vh] w-full items-center justify-center overflow-hidden">
+  <img
+    src={slides[currentIndex].image}
+    alt={slides[currentIndex].title}
+    className={`
+      absolute inset-0 h-full w-full object-cover
+      transition-all duration-500 ease-in-out
+      ${isAnimating ? 'opacity-0 scale-105 animate-[kenBurns_8s_linear_forwards]' : 'opacity-100 scale-100 animate-[kenBurns_8s_linear_forwards]'}
+    `}
+  />
 
-          <div className="relative z-10 w-full h-full bg-black/30 flex items-center justify-between px-4 md:px-8">
+  {nextIndex !== null && (
+    <img
+      src={slides[nextIndex].image}
+      alt={slides[nextIndex].title}
+      className="
+        absolute inset-0 h-full w-full object-cover
+        animate-[bannerFade_1s_ease]
+      "
+    />
+  )}
 
-            <button
-              onClick={prevSlide}
-              className="text-3xl bg-bgWhite/20 hover:bg-bgWhite/40 transition rounded-full p-3 text-white"
-            >
-              <IoIosArrowBack />
-            </button>
+  <div className="relative z-10 flex h-full w-full items-center justify-between bg-black/45 px-5 text-center text-white">
+    <button
+      onClick={prevSlide}
+      aria-label="Imagen anterior"
+      className="
+        flex items-center rounded-full
+        bg-primary/40 p-3
+        text-accent
+        transition-all
+        hover:cursor-pointer
+        hover:bg-primary/60
+      "
+    >
+      <IoIosArrowBack className="text-2xl" />
+    </button>
 
-            <div className="text-center text-white px-4">
-              <h2 className="text-3xl md:text-5xl font-bold mb-2 text-primary">
-                {slides[currentIndex].title}
-              </h2>
+    <div className="max-w-3xl">
+      <h2 className="text-3xl font-bold md:text-5xl">
+        {slides[currentIndex].title}
+      </h2>
 
-              <p className="text-base md:text-xl">
-                {slides[currentIndex].description}
-              </p>
-            </div>
+      <p className="mt-4 text-lg">
+        {slides[currentIndex].description}
+      </p>
+    </div>
 
-            <button
-              onClick={nextSlide}
-              className="text-3xl bg-bgWhite/20 hover:bg-bgWhite/40 transition rounded-full p-3 text-white"
-            >
-              <IoIosArrowForward />
-            </button>
-          </div>
-        </div>
+    <button
+      onClick={nextSlide}
+      aria-label="Siguiente imagen"
+      className="
+        flex items-center rounded-full
+        bg-primary/40 p-3
+        text-accent
+        transition-all
+        hover:cursor-pointer
+        hover:bg-primary/60
+      "
+    >
+      <IoIosArrowForward className="text-2xl" />
+    </button>
+  </div>
+</div>
         )}
 
         {seen.length > 0 && (

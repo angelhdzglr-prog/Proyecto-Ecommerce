@@ -25,22 +25,34 @@ createRoot(document.getElementById('root')).render(
         </RecentlySeenContext>
         </FavContext>
         <Toaster
-          position="bottom-center"
-          toastOptions={{
-            success: {
-              style: {
-                background: '#efe9e6',
-                color: 'black',
-              },
+        position="bottom-right"
+        reverseOrder={false}
+        gutter={12}
+        toastOptions={{
+          duration: 2500,
+          style: {
+            background: '#ffffff',
+            color: '#202020',
+            borderRadius: '12px',
+            padding: '14px 18px',
+            boxShadow: '0 10px 30px rgba(0,0,0,.12)',
+            border: '1px solid #ececec',
+            fontWeight: 500,
+          },
+
+          success: {
+            style: {
+              borderLeft: '5px solid #22c55e',
             },
-            error: {
-              style: {
-                background: '#F44336',
-                color: 'white',
-              },
+          },
+
+          error: {
+            style: {
+              borderLeft: '5px solid #ef4444',
             },
-          }}
-        />
+          },
+        }}
+      />
       </StrictMode>
   </QueryClientProvider>
 )
