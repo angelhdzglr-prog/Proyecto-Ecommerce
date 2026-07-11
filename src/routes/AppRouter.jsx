@@ -11,6 +11,7 @@ import CartPage from '../pages/cart/CartPage';
 import FavPages from '../pages/fav/FavPages';
 import NotFound from '../pages/NotFound';
 import ScrollToTop from '../components/shared/ScrollToTop';
+import About from '../pages/About';
 
 export const router = createBrowserRouter([
   {
@@ -55,6 +56,10 @@ export const router = createBrowserRouter([
       {
         path: 'favorites',
         element: <FavPages />,
+      },
+      {
+        path: '/about',
+        element: <About />,
       },
       {
         path: '*',
