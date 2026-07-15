@@ -36,6 +36,7 @@ export default function Navbar() {
         <button
           className="text-2xl text-accent lg:hidden"
           onClick={() => setMenuOpen(true)}
+          aria-label='Abrir menú'
         >
           <FaBars />
         </button>
@@ -102,6 +103,7 @@ export default function Navbar() {
           <button
             className="flex items-center justify-center rounded-full bg-ligthGrey p-2 transition hover:bg-gray-200"
             onClick={() => navigate('/favorites')}
+            aria-label='Ir a favoritos'
           >
             <FaRegHeart className="h-6 w-6 text-textHeading" />
           </button>
@@ -109,6 +111,7 @@ export default function Navbar() {
           <button
             className="flex items-center gap-2 rounded-lg bg-accent px-2 py-2 text-white shadow transition hover:bg-[#d8432e] md:px-4"
             onClick={() => navigate('/shoppingcart')}
+            aria-label='Ir al carrito'
           >
             <div className="relative flex items-center justify-center">
               <FaShoppingCart className="h-6 w-6" />

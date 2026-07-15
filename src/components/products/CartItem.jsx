@@ -82,6 +82,7 @@ export default function CartItem({ c }) {
         "
         src={c.images[0]}
         alt={c.title}
+        loading="lazy"
       />
 
       <div
@@ -142,6 +143,7 @@ export default function CartItem({ c }) {
               transition
               hover:bg-accent
               "
+              aria-label='Disminuir la cantidad'
               onClick={QuantityDecrement}
             >
               {c.quantity === 1 ? (
@@ -197,6 +199,7 @@ export default function CartItem({ c }) {
               transition
               hover:bg-accent
               "
+              aria-label='Aumentar la cantidad'
               onClick={QuantityIncrement}
             >
               +
@@ -251,6 +254,7 @@ export default function CartItem({ c }) {
 
           max-[920px]:mt-0
           "
+          aria-label='Eliminar producto'
           onClick={DeleteProduct}
         >
           <FaTrash />

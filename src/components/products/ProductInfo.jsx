@@ -43,6 +43,7 @@ export default function ProductInfo({ datos }) {
             transition
             hover:bg-primaryHover
           "
+          aria-label='Comprar producto'
         >
           Comprar ahora
         </button>
@@ -62,6 +63,7 @@ export default function ProductInfo({ datos }) {
             transition
             hover:bg-accentHover
           "
+          aria-label="Agregar al carrito"
           onClick={() => {
             toast.success('Se agrego al carrito');
             addCart(datos);

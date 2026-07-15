@@ -22,6 +22,7 @@ export default function CardProducts({ prod }) {
     <div className="flex justify-start">
             <button
             className="w-10 h-10 rounded-full bg-ligthGrey flex items-center justify-center border-none cursor-pointer self-end"
+            aria-label="Agregar a favoritos"
             onClick={(e) => {
               e.stopPropagation();
 
@@ -70,6 +71,7 @@ export default function CardProducts({ prod }) {
           src={prod.images[0]}
           alt={prod.title}
           className="h-[180px] w-full object-contain transition-all duration-150"
+          loading="lazy"
         />
 
         <div>
@@ -91,6 +93,7 @@ export default function CardProducts({ prod }) {
 
       <button
         className="w-full rounded-md bg-accent p-[0.6rem] font-semibold text-white transition-colors duration-200 hover:bg-[#d8432e]"
+        aria-label="Agregar al carrito"
         onClick={() => {
           toast.success("Se agrego al carrito");
           addCart(prod);

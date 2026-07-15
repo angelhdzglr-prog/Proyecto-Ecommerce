@@ -28,7 +28,6 @@ export default function FavProducts({ fav }) {
         max-[380px]:gap-0
       "
     >
-      {/* Imagen */}
       <div className="flex gap-2 items-center max-[380px]:justify-center">
         <img
           src={fav.images[0]}
@@ -42,10 +41,10 @@ export default function FavProducts({ fav }) {
             max-[380px]:h-[200px]
             max-[380px]:w-[200px]
           "
+          loading="lazy"
         />
       </div>
 
-      {/* Información */}
       <div className="pb-4 max-[380px]:pb-4">
         <Link
           to={`/products/${fav.id}`}
@@ -91,7 +90,6 @@ export default function FavProducts({ fav }) {
         </p>
       </div>
 
-      {/* Botones */}
       <div
         className="
           flex
@@ -114,6 +112,7 @@ export default function FavProducts({ fav }) {
             transition
             hover:bg-accentHover
           "
+          aria-label="Agregar al carrito"
           onClick={() => {
             toast.success('Se agrego al carrito');
             addCart(fav);
@@ -134,6 +133,7 @@ export default function FavProducts({ fav }) {
             hover:bg-error
             hover:text-white
           "
+          aria-label='Eliminar de favoritos'
           onClick={() => {
             toast.error('Se elimino de favoritos');
             removeFav(fav.id);
