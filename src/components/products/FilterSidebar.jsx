@@ -235,6 +235,7 @@ export default function FilterSidebar({
       <button
         onClick={clearFilters}
         className="w-full rounded-md bg-accent px-4 py-3 text-sm font-semibold text-white transition hover:bg-accentHover"
+        aria-label='Borrar filtros'
       >
         Borrar filtros
       </button>

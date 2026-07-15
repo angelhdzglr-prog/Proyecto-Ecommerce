@@ -160,6 +160,7 @@ export default function Navbar() {
           <button
             onClick={() => setCategoriesOpen(!categoriesOpen)}
             className="mx-2 rounded-lg px-4 py-2 text-left text-textHeading transition hover:bg-[#0060641a] hover:text-primary"
+            aria-label='Ver categorias'
           >
             Categorías
           </button>
