@@ -88,6 +88,7 @@ export default function ProductsContent({
         <button
           className="md:hidden flex items-center gap-2 bg-accent text-white px-4 py-3 rounded-lg font-semibold mb-4 relative"
           onClick={() => setOpenFilters(true)}
+          aria-label='Ver filtros'
         >
           Filtros
 

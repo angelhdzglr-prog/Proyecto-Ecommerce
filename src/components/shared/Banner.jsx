@@ -9,6 +9,7 @@ export default function Banner({ image, titulo, text, little }) {
         src={image}
         alt={titulo}
         className="absolute inset-0 w-full h-full object-cover"
+        loading="lazy"
       />
 
       <div className="relative z-10 flex flex-col justify-center items-center text-center bg-black/20 w-[80%] h-[80%] p-6">

@@ -98,6 +98,7 @@ export default function Home() {
   <img
     src={slides[currentIndex].image}
     alt={slides[currentIndex].title}
+    loading="lazy"
     className={`
       absolute inset-0 h-full w-full object-cover
       transition-all duration-500 ease-in-out
@@ -109,6 +110,7 @@ export default function Home() {
     <img
       src={slides[nextIndex].image}
       alt={slides[nextIndex].title}
+      loading="lazy"
       className="
         absolute inset-0 h-full w-full object-cover
         animate-[bannerFade_1s_ease]

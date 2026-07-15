@@ -65,6 +65,7 @@ export default function CartPrice() {
           transition
           hover:bg-accentHover
         "
+        aria-label='Proceder al pago'
       >
         Proceder al pago
       </button>
@@ -82,6 +83,7 @@ export default function CartPrice() {
           hover:bg-error
           hover:text-white
         "
+        aria-label='Borrar carrito'
       >
         Borrar Carrito
       </button>

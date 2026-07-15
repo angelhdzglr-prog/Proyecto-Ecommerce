@@ -30,8 +30,8 @@ export default function ProductsDetails(){
   if (isLoading) {
     return (
       <div>
-        <SkeletonDetails />
         <SkeletonBreadcrumb />
+        <SkeletonDetails />        
       </div>
     );
   }
