@@ -106,7 +106,7 @@ export default function MenuFooter() {
             </a>
 
             <a
-              href="#"
+              href="https://github.com/angelhdzglr-prog"
               aria-label="GitHub"
               className="transition-transform duration-200 hover:scale-110 hover:text-accent"
             >
@@ -125,7 +125,7 @@ export default function MenuFooter() {
           <div className="flex items-center gap-2">
             <FaWhatsappSquare className="text-2xl text-green-400" />
 
-            <span>(55) 55-5252-2525</span>
+            <span>(55) 56-2472-7401</span>
           </div>
         </div>
       </div>
