@@ -125,7 +125,7 @@ export default function MenuFooter() {
           <div className="flex items-center gap-2">
             <FaWhatsappSquare className="text-2xl text-green-400" />
 
-            <span>(55) 56-2472-7401</span>
+            <span>(+52) 56-2472-7401</span>
           </div>
         </div>
       </div>

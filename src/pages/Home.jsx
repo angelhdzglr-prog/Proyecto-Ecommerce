@@ -25,21 +25,21 @@ export default function Home() {
       title: 'Dale vida a tu cocina',
       description: 'Los mejores accesorios para tu cocina',
       image:
-        'https://images.pexels.com/photos/17542995/pexels-photo-17542995.jpeg',
+        '/src/assets/Carrousel-1.webp',
     },
     {
       id: 2,
       title: 'Ve por todo',
       description: 'Entrena con el mejor equipo',
       image:
-        'https://images.pexels.com/photos/26705155/pexels-photo-26705155.jpeg',
+        '/src/assets/Carrousel-2.webp',
     },
     {
       id: 3,
       title: 'Gadgets',
       description: 'Facilita tu vida',
       image:
-        'https://images.pexels.com/photos/10104284/pexels-photo-10104284.jpeg',
+        '/src/assets/Carrousel-3.webp',
     },
   ];
 
@@ -98,7 +98,8 @@ export default function Home() {
   <img
     src={slides[currentIndex].image}
     alt={slides[currentIndex].title}
-    loading="lazy"
+    loading="eager"
+    fetchPriority="high"
     className={`
       absolute inset-0 h-full w-full object-cover
       transition-all duration-500 ease-in-out
@@ -180,7 +181,7 @@ export default function Home() {
         </section>
 
         <Banner
-          image="https://images.pexels.com/photos/8763072/pexels-photo-8763072.jpeg"
+          image="/src/assets/Banner-1.webp"
           titulo="Diseña el hogar que imaginas"
           text="Muebles modernos que combinan comodidad, calidad y estilo."
           little
@@ -197,7 +198,7 @@ export default function Home() {
         </section>
 
         <Banner
-          image="https://images.pexels.com/photos/17689341/pexels-photo-17689341.jpeg"
+          image="/src/assets/Banner-2.webp"
           titulo="Mantente Conectado"
           text="Los smartphones más innovadores con el mejor rendimiento."
           little
@@ -214,7 +215,7 @@ export default function Home() {
         </section>
 
         <Banner
-          image="https://images.pexels.com/photos/17689341/pexels-photo-17689341.jpeg"
+          image="/src/assets/Banner-3.webp"
           titulo="Potencia para cada proyecto"
           text="Laptops diseñadas para trabajar, estudiar y crear sin límites."
           little
@@ -231,7 +232,7 @@ export default function Home() {
         </section>
 
         <Banner
-          image="https://images.pexels.com/photos/17689341/pexels-photo-17689341.jpeg"
+          image="/src/assets/Banner-4.webp"
           titulo="Ofertas que no querrás perder"
           text="Encuentra productos seleccionados con precios increíbles por tiempo limitado."
           little

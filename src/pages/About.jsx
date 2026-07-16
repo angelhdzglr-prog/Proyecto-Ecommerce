@@ -9,6 +9,7 @@ import { GrToast } from 'react-icons/gr';
 import { TbApi, TbBrandVite } from 'react-icons/tb';
 import { FaHelmetSafety } from 'react-icons/fa6';
 import { SiCreatereactapp } from 'react-icons/si';
+import { Helmet } from 'react-helmet-async';
 
 export default function About() {
   const technologies = [
@@ -65,6 +66,14 @@ export default function About() {
   ];
 
   return (
+    <>
+    <Helmet>
+      <title>Acerca de | Emarket</title>
+        <meta
+        name="description"
+        content="Descripción del proyecto a detalle."
+        />
+    </Helmet>
     <div className="max-w-6xl mx-auto px-6 py-14 space-y-20">
 <section className="text-center">
 
@@ -560,4 +569,5 @@ export default function About() {
     </div>
     </section>
     </div>
+    </>
 )}
