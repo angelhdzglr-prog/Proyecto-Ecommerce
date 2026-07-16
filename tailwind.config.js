@@ -32,6 +32,11 @@ export default {
 	  grey: '#cccccc',
   },
 
+  fontFamily: {
+        title: ["Clash Display", "sans-serif"],
+        body: ["Satoshi", "sans-serif"],
+      },
+
     },
   },
   plugins: [],

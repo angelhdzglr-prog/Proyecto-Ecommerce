@@ -3,7 +3,11 @@
 @tailwind utilities;
 
 @layer base {
-  h1,
+  html {
+    scroll-behavior: smooth;
+  }
+
+    h1,
   h2,
   h3,
   h4,
@@ -11,9 +15,21 @@
   h6 {
     @apply text-primary;
     @apply my-4;
-    @apply font-[(--body)]
+    @apply font-title;
+  }
+
+  p,
+  span,
+  button,
+  input,
+  textarea,
+  select,
+  a,
+  li {
+    @apply font-body;
   }
 }
+
 
 @keyframes kenBurns {
   from {
