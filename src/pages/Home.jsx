@@ -9,8 +9,16 @@ import SkeletonBanner from '../components/skeletons/SkeletonBanner';
 import { Helmet } from 'react-helmet-async';
 import useSeen from '../hooks/useSeen';
 import ListProducts from '../components/products/ListProducts';
+import banner1 from '../assets/Banner-1.webp';
+import banner2 from '../assets/Banner-2.webp';
+import banner3 from '../assets/Banner-3.webp';
+import banner4 from '../assets/Banner-4.webp';
+import carrousel1 from '../assets/Carrousel-1.webp';
+import carrousel2 from '../assets/Carrousel-2.webp';
+import carrousel3 from '../assets/Carrousel-3.webp';
 
 export default function Home() {
+  
   const { data: categories = [], isLoading } = useGetCategories();
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -24,22 +32,19 @@ export default function Home() {
       id: 1,
       title: 'Dale vida a tu cocina',
       description: 'Los mejores accesorios para tu cocina',
-      image:
-        '/src/assets/Carrousel-1.webp',
+      image: carrousel1,
     },
     {
       id: 2,
       title: 'Ve por todo',
       description: 'Entrena con el mejor equipo',
-      image:
-        '/src/assets/Carrousel-2.webp',
+      image: carrousel2,
     },
     {
       id: 3,
       title: 'Gadgets',
       description: 'Facilita tu vida',
-      image:
-        '/src/assets/Carrousel-3.webp',
+      image: carrousel3,
     },
   ];
 
@@ -181,7 +186,7 @@ export default function Home() {
         </section>
 
         <Banner
-          image="/src/assets/Banner-1.webp"
+          image={banner1}
           titulo="Diseña el hogar que imaginas"
           text="Muebles modernos que combinan comodidad, calidad y estilo."
           little
@@ -198,7 +203,7 @@ export default function Home() {
         </section>
 
         <Banner
-          image="/src/assets/Banner-2.webp"
+          image={banner2}
           titulo="Mantente Conectado"
           text="Los smartphones más innovadores con el mejor rendimiento."
           little
@@ -215,7 +220,7 @@ export default function Home() {
         </section>
 
         <Banner
-          image="/src/assets/Banner-3.webp"
+          image={banner3}
           titulo="Potencia para cada proyecto"
           text="Laptops diseñadas para trabajar, estudiar y crear sin límites."
           little
@@ -232,7 +237,7 @@ export default function Home() {
         </section>
 
         <Banner
-          image="/src/assets/Banner-4.webp"
+          image={banner4}
           titulo="Ofertas que no querrás perder"
           text="Encuentra productos seleccionados con precios increíbles por tiempo limitado."
           little
