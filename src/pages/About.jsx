@@ -140,7 +140,7 @@ export default function About() {
     ¿Qué es Emarket?
   </h2>
 
-  <p className="leading-8 text-textSecondary">
+  <p className="leading-8 text-textSecondary text-justify">
     Emarket es una aplicación de comercio electrónico desarrollada con
     React que simula una experiencia moderna de compra en línea
     utilizando la API DummyJSON como fuente de datos. El objetivo
@@ -151,7 +151,7 @@ export default function About() {
 
 </section>
 
-<section id="Objetivos">
+<section id="Objetivos" className='text-justify'>
 
   <h2 className="text-3xl font-bold text-primary mb-8">
     Objetivos del proyecto
@@ -228,7 +228,7 @@ export default function About() {
 
           <div className="space-y-8">
 
-            <div className="bg-bgWhite rounded-xl shadow-md p-6 border border-borderGrey">
+            <div className="bg-bgWhite rounded-xl shadow-md p-6 border border-borderGrey text-justify">
               <h3 className="text-xl font-semibold text-textHeading mb-3">
                 Catálogo de productos
               </h3>
@@ -253,7 +253,7 @@ export default function About() {
                 Filtros inteligentes
               </h3>
 
-              <p className="text-textBody leading-8">
+              <p className="text-textBody leading-8 text-justify">
                 Los usuarios pueden filtrar productos por categoría, rango de
                 precios y calificación para encontrar rápidamente aquello que
                 buscan. En dispositivos móviles los filtros se muestran dentro
@@ -267,7 +267,7 @@ export default function About() {
                 Ordenamiento
               </h3>
 
-              <p className="text-textBody leading-8">
+              <p className="text-textBody leading-8 text-justify">
                 Es posible ordenar el catálogo por precio ascendente,
                 descendente o por mejor calificación, permitiendo comparar
                 productos de una forma mucho más sencilla.
@@ -279,7 +279,7 @@ export default function About() {
                 Búsqueda de productos
               </h3>
 
-              <p className="text-textBody leading-8">
+              <p className="text-textBody leading-8 text-justify">
                 La barra de búsqueda integrada en el Navbar utiliza la API de
                 DummyJSON para encontrar productos en tiempo real. Cuando no
                 existen coincidencias, la aplicación informa claramente al
@@ -292,7 +292,7 @@ export default function About() {
                 Lista de favoritos
               </h3>
 
-              <p className="text-textBody leading-8">
+              <p className="text-textBody leading-8 text-justify">
                 Los usuarios pueden guardar productos como favoritos para
                 consultarlos posteriormente. La lista permanece almacenada en
                 el navegador mediante LocalStorage, por lo que no se pierde al
@@ -300,7 +300,7 @@ export default function About() {
               </p>
             </div>
 
-            <div className="bg-bgWhite rounded-xl shadow-md p-6 border border-borderGrey">
+            <div className="bg-bgWhite rounded-xl shadow-md p-6 border border-borderGrey text-justify">
               <h3 className="text-xl font-semibold text-textHeading mb-3">
                 Carrito de compras
               </h3>
@@ -323,7 +323,7 @@ export default function About() {
                 Productos vistos recientemente
               </h3>
 
-              <p className="text-textBody leading-8">
+              <p className="text-textBody leading-8 text-justify">
                 Se implementó una sección que recuerda los últimos productos
                 visitados utilizando LocalStorage. Esta sección únicamente se
                 muestra cuando existen elementos almacenados y mantiene un
@@ -331,7 +331,7 @@ export default function About() {
               </p>
             </div>
 
-            <div className="bg-bgWhite rounded-xl shadow-md p-6 border border-borderGrey">
+            <div className="bg-bgWhite rounded-xl shadow-md p-6 border border-borderGrey text-justify">
               <h3 className="text-xl font-semibold text-textHeading mb-3">
                 Compartir productos
               </h3>
@@ -344,7 +344,7 @@ export default function About() {
               </p>
             </div>
 
-            <div className="bg-bgWhite rounded-xl shadow-md p-6 border border-borderGrey">
+            <div className="bg-bgWhite rounded-xl shadow-md p-6 border border-borderGrey text-justify">
               <h3 className="text-xl font-semibold text-textHeading mb-3">
                 Diseño Responsive
               </h3>
@@ -356,7 +356,7 @@ export default function About() {
               </p>
             </div>
 
-            <div className="bg-bgWhite rounded-xl shadow-md p-6 border border-borderGrey">
+            <div className="bg-bgWhite rounded-xl shadow-md p-6 border border-borderGrey text-justify">
               <h3 className="text-xl font-semibold text-textHeading mb-3">
                 Skeleton Loading
               </h3>
@@ -368,7 +368,7 @@ export default function About() {
               </p>
             </div>
 
-            <div className="bg-bgWhite rounded-xl shadow-md p-6 border border-borderGrey">
+            <div className="bg-bgWhite rounded-xl shadow-md p-6 border border-borderGrey text-justify">
               <h3 className="text-xl font-semibold text-textHeading mb-3">
                 Breadcrumb
               </h3>
@@ -380,7 +380,7 @@ export default function About() {
               </p>
             </div>
 
-            <div className="bg-bgWhite rounded-xl shadow-md p-6 border border-borderGrey">
+            <div className="bg-bgWhite rounded-xl shadow-md p-6 border border-borderGrey text-justify">
               <h3 className="text-xl font-semibold text-textHeading mb-3">
                 SEO básico
               </h3>
@@ -393,7 +393,7 @@ export default function About() {
               </p>
             </div>
 
-            <div className="bg-bgWhite rounded-xl shadow-md p-6 border border-borderGrey">
+            <div className="bg-bgWhite rounded-xl shadow-md p-6 border border-borderGrey text-justify">
               <h3 className="text-xl font-semibold text-textHeading mb-3">
                 Animaciones
               </h3>
@@ -405,7 +405,7 @@ export default function About() {
               </p>
             </div>
 
-            <div className="bg-bgWhite rounded-xl shadow-md p-6 border border-borderGrey">
+            <div className="bg-bgWhite rounded-xl shadow-md p-6 border border-borderGrey text-justify">
               <h3 className="text-xl font-semibold text-textHeading mb-3">
                 Accesibilidad
               </h3>
@@ -428,7 +428,7 @@ export default function About() {
         Arquitectura del proyecto
         </h2>
 
-        <div className="bg-bgWhite rounded-xl">
+        <div className="bg-bgWhite rounded-xl text-justify">
         <p className="text-textBody leading-8">
             Emarket fue desarrollado siguiendo una arquitectura basada en
             componentes reutilizables para facilitar el mantenimiento y la
@@ -459,7 +459,7 @@ export default function About() {
         </h2>
 
         <div className="bg-bgWhite rounded-xl">
-        <ul className="space-y-4 list-disc pl-6 text-textBody leading-8">
+        <ul className="space-y-4 list-disc pl-6 text-textBody leading-8 text-justify">
             <li>
             Diseñar una galería de imágenes adaptable para escritorio y
             dispositivos móviles sin provocar cambios de tamaño al cambiar la
@@ -503,7 +503,7 @@ export default function About() {
     </section>
 
     <section className="space-y-8">
-    <div>
+    <div className='text-justify'>
         <h2 className="text-3xl font-bold text-primary mb-6">
         Lo que aprendí
         </h2>
